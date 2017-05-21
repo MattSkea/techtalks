@@ -19,6 +19,7 @@
 	<header>
 		<a href="index.html"><img class="logo" src="img/site-layout/logo.svg" alt="Techtalks logo"></a>
 
+
 		<!-- MAIN NAVIGATION -->
 		<nav class="flex-nav">
 			<a href="#" class="toggleNav"><div class="fa fa-bars" aria-hidden="true"></div> Menu</a>
