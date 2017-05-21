@@ -1,0 +1,97 @@
+/**************************************/
+/***************COLOURS****************/
+/**************************************/
+/*********COLOUR ALTERNATIVES**********/
+/**************************************/
+/************TYPOGRAPHIES**************/
+/**************************************/
+/***************AFFECTS****************/
+/**************************************/
+/*********MOBILE FIRST DESIGN**********/
+/**************************************/
+/**************************************/
+/**************BODY LAYOUT*************/
+/**************************************/
+body {
+  background-color: #f0f0f0;
+  font-family: 'Lato', sans-serif; }
+
+/**************************************/
+/************HEADER LAYOUT*************/
+/**************************************/
+header, footer {
+  color: #000000; }
+
+header a,
+footer a {
+  color: #000000;
+  letter-spacing: 2px;
+  text-decoration: none;
+  padding: 20px 5px;
+  display: block;
+  text-align: center; }
+  header a:hover,
+  footer a:hover {
+    background: rgba(0, 0, 0, 0.3); }
+
+.logo {
+  width: 120px; }
+
+.flex-nav {
+  /* Flex Container */ }
+  .flex-nav ul {
+    border-top: 1px solid #c7c7c7;
+    border-bottom: 1px solid #c7c7c7;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* USE display:flex for laptop view */
+    display: none; }
+
+/*SEARCH BAR STYLING*/
+.search-bar-form {
+  width: 100%;
+  border-bottom: 1px solid #c7c7c7; }
+
+/*SEARCH FORM CONAINER*/
+.search-bar-form > div {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 5px; }
+
+/*SEACH BAR*/
+.search-input-container {
+  width: 100%;
+  /* TOGGLE CONTAINER DISPLAY IN JS FOR ACTIVE SEARCHS*/
+  display: none; }
+
+.search-input-container input {
+  width: 96%;
+  /*the inputs width is dependant on the parent container*/
+  height: 30px;
+  padding: 2px 0 0 4px; }
+
+/*SEARCH ICON*/
+/*SETUP ICON CONTAINER*/
+.search-icon-button {
+  width: 30px;
+  height: 30px;
+  background-color: #c7c7c7;
+  border-radius: 50%;
+  margin: 3px 10px;
+  display: flex;
+  cursor: pointer; }
+  .search-icon-button .search-icon {
+    /*CENTER THE ICON*/
+    padding: 5px 6px; }
+
+.search-icon-button:hover {
+  background-color: #2e2e2e; }
+  .search-icon-button:hover .search-icon {
+    color: #ffffff; }
+
+/*MEDIA QUERY - TABLET*/
+/*MEDIA QUERY - SMALL PC*/
+
+/*# sourceMappingURL=style.css.map */

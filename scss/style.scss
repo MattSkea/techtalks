@@ -1,0 +1,119 @@
+//import var
+@import "variables";
+
+/**************************************/
+/*********MOBILE FIRST DESIGN**********/
+/**************************************/
+
+/**************************************/
+/**************BODY LAYOUT*************/
+/**************************************/
+body{
+	background-color: $accent-color-2;
+
+	@include primary-font();
+}
+
+
+/**************************************/
+/************HEADER LAYOUT*************/
+/**************************************/
+header, footer{
+	color: $dark-text-color;
+}
+header a ,
+footer a{
+	color: $dark-text-color;
+	letter-spacing: 2px;
+	text-decoration: none;
+	padding: 20px 5px;
+	display: block;
+	text-align: center;
+
+	&:hover {
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+}
+
+.logo{
+	width: 120px;
+}
+
+.flex-nav{
+	/* Flex Container */
+	ul {
+		border-top: 1px solid $lightenPrimaryColor;
+		border-bottom: 1px solid $lightenPrimaryColor;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		/* USE display:flex for laptop view */
+		display: none;
+	}
+} 
+
+/*SEARCH BAR STYLING*/
+.search-bar-form{
+	width: 100%;
+	border-bottom: 1px solid $lightenPrimaryColor;
+}
+/*SEARCH FORM CONAINER*/
+.search-bar-form > div{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+
+	padding: 20px 5px;
+	
+}
+
+/*SEACH BAR*/
+.search-input-container{
+	width: 100%;
+	/* TOGGLE CONTAINER DISPLAY IN JS FOR ACTIVE SEARCHS*/
+	display:none;
+}
+
+.search-input-container input{
+	width: 96%; /*the inputs width is dependant on the parent container*/
+	height: 30px;
+	padding: 2px 0 0 4px;
+
+}
+
+/*SEARCH ICON*/
+/*SETUP ICON CONTAINER*/
+.search-icon-button{
+	width: 30px;
+	height: 30px;
+	background-color: $lightenPrimaryColor; 
+	border-radius: 50%;
+	margin: 3px 10px;
+	display: flex;
+	cursor: pointer;
+
+	.search-icon{
+		/*CENTER THE ICON*/
+		padding: 5px 6px;
+	}
+
+}
+.search-icon-button:hover{
+	background-color: $darkenPrimaryColor; 
+	// margin-left: 25px;
+
+	.search-icon{
+		color: $light-text-color;
+	}
+}
+
+/*MEDIA QUERY - TABLET*/
+@media screen and(max-width: 800px){
+
+}
+
+/*MEDIA QUERY - SMALL PC*/
+@media screen and(max-width: 1024px){
+
+}

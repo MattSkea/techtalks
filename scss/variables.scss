@@ -1,0 +1,35 @@
+/**************************************/
+/***************COLOURS****************/
+$primary-color: #616161; //dark grey
+$secondary-color: #546e7a; //dark blue
+$accent-color-1: #8bc34a; //dark green
+$accent-color-2: #f0f0f0; //lightgrey white
+$dark-text-color: #000000; //black
+$light-text-color: #ffffff; //white
+
+/**************************************/
+/*********COLOUR ALTERNATIVES**********/
+$darkenPrimaryColor: darken($primary-color, 20%);
+$lightenPrimaryColor: lighten($primary-color, 40%);
+
+$darkenSecondaryColor: darken($secondary-color, 70%);
+$lightenSecondaryColor: darken($secondary-color, 50%);
+
+$darkenAcctColor1: darken($accent-color-1, 70%);
+$lightenAcctColor1: lighten($accent-color-1, 50%);
+
+$darkenAcctColor2: darken($accent-color-2, 70%);
+$lightenAcctColor2: lighten($accent-color-2, 50%);
+
+/**************************************/
+/************TYPOGRAPHIES**************/
+@mixin primary-font() {
+font-family: 'Lato', sans-serif;
+}
+
+@mixin secondary-font() {
+font-family: 'Open Sans', sans-serif;
+}
+
+/**************************************/
+/***************AFFECTS****************/
