@@ -7,7 +7,7 @@
 		<nav class="flex-nav">
 			<a href="#" class="toggleNav"><div class="fa fa-bars" aria-hidden="true"></div> Menu</a>
 			<ul>
-				<li><a class="link" data-go-to="section-login">Events</a></li>
+				<li><a class="link" data-go-to="section-events">Events</a></li>
 				<li><a class="link" data-go-to="section-our-partners">Our partners</a></li>
 				<li><a class="link" data-go-to="section-about-us">About us</a></li>		
 				<li><a class="link" data-go-to="section-contact-us">Contact us</a></li>		
