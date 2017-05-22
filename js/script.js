@@ -25,12 +25,18 @@ $(document).on("click", ".link", function () {
 
 	/*retrieve the parent element and see if the parent is article-links(inside main menu)*/
 	var sElementParent = $(this).parent().attr("id");
+	
+	/*get name of header*/
+	var containerToHide = ".flex-nav ul";
 
 	/*hide the current window*/
 	fnHideCurrentWindow();
 
 	/*show the selected window*/
 	fnShowSelectedWindow(sIdWindowToShow);
+	
+	/*hide the navigation*/
+	toggleContainer(containerToHide);
 });
 
 

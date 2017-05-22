@@ -113,8 +113,6 @@ footer a {
   flex-direction: column;
   /*set a width for the form */
   width: 100vw;
-  padding-top: 10px;
-  padding-bottom: 20px;
   background-color: #EEEEEE; }
 
 .form:last-child {
@@ -122,8 +120,7 @@ footer a {
 
 /*form group styling*/
 .form-group {
-  display: flex;
-  padding: 10px 8px; }
+  display: flex; }
 
 .form-submit-btn div,
 .form label {
