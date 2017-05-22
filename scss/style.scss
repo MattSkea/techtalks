@@ -10,17 +10,20 @@
 /**************************************/
 body{
 	background-color: $accent-color-2;
+	padding: 0;
+	margin: 0;
 
 	@include primary-font();
 }
 
 
 /**************************************/
-/************HEADER LAYOUT*************/
+/*********START HEADER LAYOUT**********/
 /**************************************/
 header, footer{
 	color: $dark-text-color;
 }
+
 header a ,
 footer a{
 	color: $dark-text-color;
@@ -50,6 +53,10 @@ footer a{
 		padding: 0;
 		/* USE display:flex for laptop view */
 		display: none;
+
+		li a{
+			cursor: pointer;
+		}
 	}
 } 
 
@@ -107,6 +114,118 @@ footer a{
 		color: $light-text-color;
 	}
 }
+/**************************************/
+/***********END HEADER LAYOUT**********/
+/**************************************/
+
+/**************************************/
+/*****START DEFAULT LAYOUT LAYOUT******/
+/**************************************/
+.section-image img{
+	// display: block;
+	width: 100vw;
+	/*height: auto;*/
+
+}
+
+/**************************************/
+/*************FORM LAYOUT**************/
+/*form wrapper styling*/
+.form{
+	display: flex;
+	flex-direction: column;
+	// align-items:  left; 
+	// justify-content: center;
+	/*set a width for the form */
+	width: 100vw;
+
+	padding-top: 10px;
+	padding-bottom: 20px ;
+
+	background-color: #EEEEEE;
+}
+.form:last-child{
+	margin-bottom: 20px;
+}
+/*form group styling*/
+.form-group{
+	display: flex;
+
+	padding: 10px 8px;
+}
+.form-submit-btn div,
+.form label{
+	font-size: 20px;
+}
+.form-submit-btn div{
+	color: #fff;	
+}
+
+.form-submit-btn{
+	background-color: $accent-color-1;
+	width: 240px;
+	height: 36px;
+	/*background-color: #000;*/
+	padding: 6px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+
+	cursor: pointer;
+}
+.form-submit-btn:hover{
+	background-color: $darkenAcctColor1;
+}
+
+.form-submit-btn:active {
+	background-color: $lightenAcctColor1;
+}
+/**************************************/
+/***********LOGIN LAYOUT***************/
+/**************************************/
+/***********SECTION LAYOUT*************/
+#section-login{
+	/*setup the section in a column layout*/
+	
+	flex-direction: column;
+
+	height: 100%;
+}
+/**************************************/
+/***********ARTICLE LAYOUT*************/
+#article-login{
+	/*center the login section*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#form-login{
+	display: flex;
+	justify-content: space-between;
+	height: 300px;
+
+}
+
+#btn-user{
+	margin-top: 20px;
+}
+
+/**************************************/
+/************SECTION LAYOUT************/
+/**************************************/
+.section{
+	display: none;
+}
+/**************************************/
+/*****END DEFAULT LAYOUT LAYOUT******/
+/**************************************/
+
+/**************************************/
+/*************HOME LAYOUT**************/
+/**************************************/
+
 
 /*MEDIA QUERY - TABLET*/
 @media screen and(max-width: 800px){

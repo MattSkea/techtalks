@@ -15,40 +15,20 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<!-- HEADER -->
-	<header>
-		<a href="index.html"><img class="logo" src="img/site-layout/logo.svg" alt="Techtalks logo"></a>
 
-
-		<!-- MAIN NAVIGATION -->
-		<nav class="flex-nav">
-			<a href="#" class="toggleNav"><div class="fa fa-bars" aria-hidden="true"></div> Menu</a>
-			<ul>
-				<li><a href="#">Events</a></li>
-				<li><a href="#">Our partners</a></li>
-				<li><a href="#">About us</a></li>		
-				<li><a href="#">Contact us</a></li>		
-				<li><a href="#">Register</a></li>		
-				<li><a href="#">Login</a></li>		
-			</ul>
-		</nav>		
-
-		<!-- SEARCH BAR-->
-		<form id="search-bar-header" class="search-bar-form">
-			<div>
-				<div class="search-input-container">
-					<input type="text" placeholder="Search here...">
-				</div>
-				<div class="search-icon-button hover">
-					<div class="search-icon fa fa-search"></div>
-				</div>
-			</div>
-		</form>
-
-	</header>
 
 	<!-- BODY -->
 
+	<!--**************************************-->
+	<!--********* HEADERNAVIGATION ***********-->
+	<?php require_once "content/header-navigation.php"; ?>
+
+	<!--*************HOME PAGE****************-->
+	<?php require_once "content/home.php"; ?>
+	<!--*************REGISTER PAGE************-->
+	<?php require_once "content/register.php"; ?>
+	<!--*************LOGIN PAGE***************-->
+	<?php require_once "content/login.php"; ?>
 
 	<!-- FOOTER -->
 	<footer>

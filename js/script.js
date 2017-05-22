@@ -18,6 +18,20 @@ $(document).on("click", ".search-icon-button", function(){
 	toggleHeaderSeachContainer(container);
 });
 
+/*DYNAMIC NAVIGATION*/
+$(document).on("click", ".link", function () {
+	/*retrieve the attribute on the link that was clicked*/
+	var sIdWindowToShow = $(this).attr("data-go-to");
+
+	/*retrieve the parent element and see if the parent is article-links(inside main menu)*/
+	var sElementParent = $(this).parent().attr("id");
+
+	/*hide the current window*/
+	fnHideCurrentWindow();
+
+	/*show the selected window*/
+	fnShowSelectedWindow(sIdWindowToShow);
+});
 
 
 
@@ -54,4 +68,15 @@ function toggleHeaderSeachContainer(containerName){
 	} else if(state === "block"){
 		$(container).slideUp();
 	}
+}
+
+/*SHOW SELECTED WINDOW*/
+function fnShowSelectedWindow(sIdWindowToShow) {
+	console.log(sIdWindowToShow)
+	/*show the selected window*/
+	$("#" + sIdWindowToShow).css({"display": "flex"});
+}
+/*HIDE CURRENT WINDOW*/
+function fnHideCurrentWindow() {
+	$(".section").hide();
 }
