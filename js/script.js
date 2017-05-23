@@ -41,6 +41,19 @@ $(document).on("click", ".link", function () {
 
 
 
+$(document).on("click", ".buttonClick", function () {
+	var sButtonFunction=$(this).attr("data-button");
+
+	if(sButtonFunction=="event-show-map"){
+		/* show map on mobile phone */
+		toggleContainer(".event-card-map-container");
+	}
+
+
+
+});
+
+
 
 
 /****************************************************/
@@ -51,6 +64,7 @@ $(document).on("click", ".link", function () {
 /*TOGGLE CONTAINER*/
 function toggleContainer(containerName){
 	/*get the ul state*/
+
 	var container = containerName;
 	var state = $(container).css("display");
 
