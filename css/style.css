@@ -52,6 +52,21 @@ footer a {
     .flex-nav ul li a {
       cursor: pointer; }
 
+/* Button */
+.button {
+  margin: 5px;
+  width: 150px;
+  height: 37px;
+  text-align: center;
+  line-height: 37px;
+  border-radius: 3px; }
+
+.button-green {
+  background: #8bc34a;
+  border: 1.4px solid #7cb342;
+  color: white;
+  box-shadow: 1px 1px #689f38; }
+
 /*SEARCH BAR STYLING*/
 .search-bar-form {
   width: 100%;
@@ -183,7 +198,116 @@ footer a {
 /**************************************/
 /*************HOME LAYOUT**************/
 /**************************************/
+/*************EVENTS LAYOUT**************/
+#section-events {
+  display: flex;
+  flex-direction: column; }
+
+.margin-container {
+  margin: 0 auto; }
+
+.events-container {
+  width: 1024px;
+  background-color: green; }
+
+.events-header-container {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px; }
+
+.events-header-center {
+  width: 33.33%;
+  text-align: center; }
+
+.events-mobile-search {
+  display: none !important; }
+
+/*************EVENTS LAYOUT ENDS**************/
+/*************EVENT CARD**************/
+.events-card {
+  background: white;
+  width: 320px; }
+
+.events-card-image {
+  width: 100%; }
+
+.events-card-text-container {
+  padding: 2px 16px; }
+
+.events-card-content-time, .events-card-content-location, .events-card-content-pricing {
+  display: flex;
+  flex-direction: row;
+  line-height: 50px; }
+
+.events-card-content-location {
+  margin-top: 10px; }
+
+.events-card-content-time-icon {
+  display: block;
+  text-indent: -9999px;
+  width: 50px;
+  height: 50px;
+  background: url(../img/site-layout/clock.svg);
+  background-size: 50px 50px;
+  margin-left: 15px; }
+
+.events-card-content-location-icon {
+  display: block;
+  text-indent: -9999px;
+  width: 50px;
+  height: 50px;
+  background: url(../img/site-layout/map_pointer.svg);
+  background-size: 50px 50px;
+  margin-left: 15px; }
+
+.events-card-content-pricing-price {
+  margin-left: 40px; }
+
+.events-card-content-time-text, .events-card-content-location-text {
+  margin-left: 15px; }
+
+.events-card-content-tags-tags {
+  margin-left: 15px;
+  padding-bottom: 20px;
+  line-height: 30px;
+  height: 30px; }
+
+.events-card-content-pricing-button {
+  margin-left: 35px; }
+
+/*************EVENT CARD ENDS**************/
 /*MEDIA QUERY - TABLET*/
 /*MEDIA QUERY - SMALL PC*/
+@media screen and (max-width: 1024px) {
+  /*************EVENTS LAYOUT**************/
+  .events-container {
+    width: 100vw;
+    background-color: red; }
+
+  .events-header-center {
+    width: 33.33%;
+    text-align: center; }
+
+  .events-header-left {
+    width: 33.33%;
+    text-align: center; }
+
+  .events-header-right {
+    width: 33.33%;
+    text-align: center; }
+
+  .events-mobile-search {
+    display: inline-block !important; }
+
+  /*************EVENTS LAYOUT ENDS**************/
+  /*************EVENT CARD**************/
+  .events-card {
+    background: white;
+    width: 320px; }
+
+  /*************EVENT CARD ENDS**************/ }
 
 /*# sourceMappingURL=style.css.map */
