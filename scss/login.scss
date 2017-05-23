@@ -1,0 +1,33 @@
+/**************************************/
+/***********LOGIN LAYOUT***************/
+/**************************************/
+/***********SECTION LAYOUT*************/
+
+#section-login{
+	display: none;
+	height: 100%;
+	width: 100%;
+	/*setup the section in a column layout*/
+	flex-direction: column;
+}
+// /**************************************/
+// /***********ARTICLE LAYOUT*************/
+#article-login{
+	/*center the login section*/
+	display: none;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+#form-login{
+	display: flex;
+	flex-direction: column;
+	padding: 45px;
+	background-color: #fff;
+}
+
+
+
+#article-login h2{
+	padding-bottom: 8px;
+}
