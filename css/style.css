@@ -234,10 +234,10 @@ footer a {
 /*************EVENT CARD**************/
 .event-card {
   background: white;
-  width: 320px; }
+  width: 100%; }
 
 .event-card-image {
-  width: 100%; }
+  display: none; }
 
 .event-card-text-container {
   padding: 2px 16px; }
@@ -251,9 +251,6 @@ footer a {
   display: flex;
   flex-direction: row;
   justify-content: space-around; }
-
-.event-card-content-location {
-  margin-top: 10px; }
 
 .event-card-content-time-icon {
   display: block;
@@ -293,13 +290,43 @@ footer a {
 
 .event-card-map-container {
   display: none;
+  margin: 0 auto;
   width: 100%;
   height: 320px;
   padding-top: 6px;
   padding-bottom: 6px; }
 
+.event-card-content-big {
+  display: flex;
+  flex-direction: row; }
+
+.event-card-image-big {
+  margin: 16px;
+  padding-top: 10px;
+  border-top: 1px solid #c7c7c7; }
+
+.event-card-content-time-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+
 /*************EVENT CARD ENDS**************/
 /*MEDIA QUERY - TABLET*/
+@media screen and (max-width: 800px) {
+  /*************event LAYOUT**************/
+  .event-card-image {
+    display: flex;
+    width: 100%; }
+
+  .event-card-image-big {
+    display: none; }
+
+  .event-card-content-time-container {
+    display: block; }
+
+  .event-card-content-location {
+    margin-top: 10px; } }
+/*************event LAYOUT ends**************/
 /*MEDIA QUERY - SMALL PC*/
 @media screen and (max-width: 1024px) {
   /*************event LAYOUT**************/
@@ -323,11 +350,6 @@ footer a {
     display: inline-block !important; }
 
   /*************event LAYOUT ENDS**************/
-  /*************EVENT CARD**************/
-  .event-card {
-    background: white;
-    width: 320px; }
-
-  /*************EVENT CARD ENDS**************/ }
+  /*************EVENT CARD**************/ }
 
 /*# sourceMappingURL=style.css.map */

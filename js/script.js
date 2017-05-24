@@ -46,7 +46,7 @@ $(document).on("click", ".buttonClick", function () {
 
 	if(sButtonFunction=="event-show-map"){
 		/* show map on mobile phone */
-		toggleContainer(".event-card-map-container");
+		toggleContainerFlex(".event-card-map-container");
 	}
 
 
@@ -72,6 +72,24 @@ function toggleContainer(containerName){
 	if(state === "none"){
 		$(container).slideDown();
 	} else if(state === "block"){
+		$(container).slideUp();
+	}
+}
+/****************************************************/
+/*TOGGLE CONTAINER FLEX*/
+function toggleContainerFlex(containerName){
+	/*get the ul state*/
+
+	var container = containerName;
+	var state = $(container).css("display");
+
+	/*compare the ul state*/
+	if(state === "none"){
+		$(container).slideDown(400,"swing", function(){
+			 $(container).css('display', 'flex');
+		});
+		
+	} else if(state === "flex"){
 		$(container).slideUp();
 	}
 }
