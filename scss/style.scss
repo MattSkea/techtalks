@@ -272,6 +272,10 @@ footer .social-media-icons{
 	background-color: rgba(15,20,22,0.5);
 	overflow: hidden;
 	z-index: 99;
+
+	form{
+		border-radius: 4px;
+	}
 }
 
 /**************************************/
