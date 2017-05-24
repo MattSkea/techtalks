@@ -13,10 +13,13 @@
 /**************BODY LAYOUT*************/
 /**************************************/
 body {
+  /*fixing footer to bottom of browser*/
+  position: relative;
   background-color: #f0f0f0;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  box-sizing: border-box;
   font-family: 'Lato', sans-serif; }
 
 /**************************************/
@@ -50,6 +53,8 @@ header .flex-nav {
     padding: 0;
     /* USE display:flex for laptop view */
     display: none; }
+    header .flex-nav ul .pc-logo {
+      display: none; }
     header .flex-nav ul li a {
       cursor: pointer; }
 
@@ -125,6 +130,10 @@ header .flex-nav {
 /***********END HEADER LAYOUT**********/
 /*********START FOOTER LAYOUT**********/
 /**************************************/
+footer {
+  position: absolute;
+  width: 100%; }
+
 footer .social-media-icons {
   display: flex;
   justify-content: space-around;
@@ -322,7 +331,10 @@ footer .social-media-icons {
     header .flex-nav .toggleNav {
       display: none; }
     header .flex-nav ul {
-      display: flex; }
+      display: flex;
+      justify-content: space-around; }
+    header .flex-nav .pc-logo {
+      display: none; }
 
   /**************************************/
   /***********END HEADER LAYOUT**********/
@@ -352,12 +364,14 @@ footer .social-media-icons {
     /* Flex Container */ }
     header .flex-nav .toggleNav {
       display: none; }
+    header .flex-nav ul .pc-logo {
+      display: block; }
+      header .flex-nav ul .pc-logo a {
+        padding: 14.6px; }
+        header .flex-nav ul .pc-logo a img {
+          width: 100px; }
     header .flex-nav ul li {
       flex: 1; }
-      header .flex-nav ul li .pc-logo {
-        padding: 10px; }
-        header .flex-nav ul li .pc-logo img {
-          width: 140px; }
 
   /**************************************/
   /***********END HEADER LAYOUT**********/

@@ -9,7 +9,7 @@
 
 
 			<ul>
-				<li><a href="index.php" class="pc-logo"><img src="img/site-layout/logo.svg"></a></li>
+				<li class="pc-logo"><a href="index.php"><img src="img/site-layout/logo.svg"></a></li>
 				<li><a class="link" data-go-to="section-events">Events</a></li>
 				<li><a class="link" data-go-to="section-our-partners">Our partners</a></li>
 				<li><a class="link" data-go-to="section-about-us">About us</a></li>		

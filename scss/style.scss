@@ -9,10 +9,15 @@
 /**************BODY LAYOUT*************/
 /**************************************/
 body{
+	/*fixing footer to bottom of browser*/
+	position: relative;
+
 	background-color: $accent-color-2;
 	padding: 0;
 	margin: 0;
 	overflow-x:hidden;
+	box-sizing: border-box;
+
 	@include primary-font();
 }
 
@@ -54,6 +59,9 @@ header .flex-nav{
 		/* USE display:flex for laptop view */
 		display: none;
 
+		.pc-logo{
+			display: none;
+		}
 		// .pc-logo{
 		// 	display: none;
 		// }
@@ -149,6 +157,10 @@ header .flex-nav{
 
 /*********START FOOTER LAYOUT**********/
 /**************************************/
+footer{
+	position:absolute;
+	width: 100%;
+}
 footer .social-media-icons{
 	display: flex;
 	justify-content: space-around;
@@ -397,6 +409,10 @@ footer .social-media-icons{
 		/* Flex Container */
 		ul {
 			display: flex;
+			justify-content: space-around;
+		}
+		.pc-logo{
+			display: none;
 		}
 	}
 
@@ -435,16 +451,18 @@ footer .social-media-icons{
 			}
 			/* Flex Container */
 			ul {
+				.pc-logo{
+					display: block;
+					a {
+						padding: 14.6px;
+						img{
+							width: 100px;
+						}
+					}
+				}
 				li {
 					flex: 1;
 
-					.pc-logo{
-						padding:10px;
-
-						img{
-							width: 140px;
-						}
-					}
 				}
 			}
 		}
