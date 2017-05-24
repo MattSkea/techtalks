@@ -232,54 +232,26 @@ footer .social-media-icons {
 /**************************************/
 /*************HOME LAYOUT**************/
 /**************************************/
-/*************EVENT LAYOUT**************/
-#section-event {
-  display: none;
-  flex-direction: column; }
-
-.margin-container {
-  margin: 0 auto; }
-
-.event-container {
-  width: 1024px;
-  background-color: green; }
-
-.event-header-container {
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 25px; }
-
-.event-header-center {
-  width: 33.33%;
-  text-align: center; }
-
-.event-mobile-search {
-  display: none !important; }
-
-/*************EVENT LAYOUT ENDS**************/
-/*************EVENT CARD**************/
+/*************event LAYOUT**************/
 .event-card {
   background: white;
   width: 100%; }
-
-.event-card-image {
-  display: none; }
-
-.event-card-text-container {
-  padding: 2px 16px; }
 
 .event-card-content-time, .event-card-content-location {
   display: flex;
   flex-direction: row;
   line-height: 50px; }
 
+.event-card-image-big {
+  display: none; }
+
 .event-card-content-pricing {
   display: flex;
   flex-direction: row;
   justify-content: space-around; }
+
+.event-card-content-pricing-price {
+  line-height: 50px; }
 
 .event-card-content-time-icon {
   display: block;
@@ -298,9 +270,6 @@ footer .social-media-icons {
   background: url(../img/site-layout/map_pointer.svg);
   background-size: 50px 50px;
   margin-left: 15px; }
-
-.event-card-content-pricing-price {
-  line-height: 50px; }
 
 .event-card-content-time-text, .event-card-content-location-text {
   margin-left: 15px; }
@@ -325,21 +294,20 @@ footer .social-media-icons {
   padding-top: 6px;
   padding-bottom: 6px; }
 
-.event-card-content-big {
-  display: flex;
-  flex-direction: row; }
+#section-event {
+  display: none;
+  flex-direction: column; }
 
-.event-card-image-big {
-  margin: 16px;
-  padding-top: 10px;
-  border-top: 1px solid #c7c7c7; }
-
-.event-card-content-time-container {
+.event-card-image {
   display: flex;
-  flex-direction: row;
+  width: 100%; }
+
+.event-card-text-container {
+  padding: 2px 16px; }
+
+.event-card-map-container {
   justify-content: center; }
 
-/*************EVENT CARD ENDS**************/
 /*MEDIA QUERY - TABLET*/
 @media screen and (min-width: 700px) {
   /**************************************/
@@ -356,14 +324,15 @@ footer .social-media-icons {
       display: none; }
 
   /**************************************/
-  /***********END HEADER LAYOUT**********/
   /*************event LAYOUT**************/
+  .event-card-content-time-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+
   .event-card-image {
     display: flex;
     width: 100%; }
-
-  .event-card-image-big {
-    display: none; }
 
   .event-card-content-time-container {
     display: block; }
@@ -371,7 +340,23 @@ footer .social-media-icons {
   .event-card-content-location {
     margin-top: 10px; }
 
-  /*************event LAYOUT ends**************/ }
+  .event-card-image {
+    display: none; }
+
+  /**************************************/
+  .event-card-content-big {
+    display: flex;
+    flex-direction: row; }
+
+  .event-card-image-big {
+    margin: 16px;
+    padding-top: 10px;
+    border-top: 1px solid #c7c7c7; }
+
+  .event-card-image-big {
+    display: block; }
+
+  /***********END HEADER LAYOUT**********/ }
 /*MEDIA QUERY - SMALL PC*/
 @media screen and (min-width: 1024px) {
   /**************************************/
@@ -394,26 +379,38 @@ footer .social-media-icons {
 
   /**************************************/
   /***********END HEADER LAYOUT**********/
+  /*************EVENT CARD start**************/
+  .margin-container {
+    margin: 0 auto; }
+
   /*************event LAYOUT**************/
   .event-container {
-    width: 100vw;
-    background-color: red; }
+    width: 1024px; }
 
-  .event-header-center {
-    width: 33.33%;
-    text-align: center; }
+  .event-card-image {
+    display: none; }
 
-  .event-header-left {
-    width: 33.33%;
-    text-align: center; }
+  .event-card-text-container {
+    padding: 2px 16px; }
 
-  .event-header-right {
-    width: 33.33%;
-    text-align: center; }
+  .event-card-content-time, .event-card-content-location {
+    display: flex;
+    flex-direction: row;
+    line-height: 50px; }
 
-  .event-mobile-search {
-    display: inline-block !important; }
+  .event-card-content-big {
+    display: flex;
+    flex-direction: row; }
 
+  .event-card-image-big {
+    margin: 16px;
+    padding-top: 10px;
+    border-top: 1px solid #c7c7c7; }
+
+  .event-card-image-big {
+    display: block; }
+
+  /*************event LAYOUT end**************/
   /*************event LAYOUT ENDS**************/
   /*************EVENT CARD**************/ }
 
