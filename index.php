@@ -36,8 +36,8 @@
 	<!--********* FOOTER NAVIGATION **********-->
 	<?php require_once "content/footer-navigation.php"; ?>
 
-	<script src="https://use.fontawesome.com/aa9b1b4b5c.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/aa9b1b4b5c.js"></script>
 
 	<!-- CUSTOM JS SHEETS-->
 	<script src="js/script.js"></script>

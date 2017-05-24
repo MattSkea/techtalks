@@ -9,6 +9,9 @@
 			
 			<!--************CONTACT US**************-->
 			<?php require_once "contact-us.php"; ?>
+
+			<!--************CONTACT US**************-->
+			<?php require_once "confirm-booking.php"; ?>
 		</div>
 	</div>
 </div>

@@ -169,7 +169,8 @@ footer .social-media-icons {
 /**************************************/
 /***********ARTICLE LAYOUT*************/
 #article-login,
-#article-register {
+#article-register,
+#article-confirm-booking {
   /*center the login section*/
   display: flex;
   justify-content: center;
@@ -178,7 +179,8 @@ footer .social-media-icons {
 
 #form-login,
 #form-register,
-#form-contact-us {
+#form-contact-us,
+#form-confirm-booking {
   display: flex;
   /*increase padding for table & pc media queries*/
   padding-right: 10px;
@@ -187,14 +189,16 @@ footer .social-media-icons {
   background-color: #ffffff; }
   #form-login input,
   #form-register input,
-  #form-contact-us input {
+  #form-contact-us input,
+  #form-confirm-booking input {
     width: 280px;
     height: 30px;
     padding: 2px 0 0 4px;
     margin-bottom: 16px; }
   #form-login .button,
   #form-register .button,
-  #form-contact-us .button {
+  #form-contact-us .button,
+  #form-confirm-booking .button {
     margin: 0 auto; }
 
 #btn-user {

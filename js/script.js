@@ -68,14 +68,28 @@ $(document).on("click", "#header-contact-link", function(e){
 	showOverlay();   
 });
 
+/************* BOOK EVENT - SHOW OVERLAY ************/
+$(document).on("click", ".bookEvent" , function(e){
+	/*GET THE TARGETED EVENT ID TO BOOK TICKETS FOR*/
+	var target = $(e.target);
+	var targetDataEventToBook = target.data("book");
+	var bookEventId = targetDataEventToBook.split("-").pop();
+	var showSection = "section-confirm-booking";
+
+	var compare = "section-overlay";
+
+	showOverlay();    
+	fnShowSelectedWindow(showSection) ;
+});
+
 
 /****************** HIDE OVERLAY ********************/
 $(document).on("click", "#section-overlay" , function(e){
 	var target = e.target.id;
-	var compair = "section-overlay";
+	var compare = "section-overlay";
 
 	/*IF THE USER CLICKS OUTSIDE THE FORM, HIDE THE OVERLAY WITH LOGIN*/
-	if(target === compair){
+	if(target === compare){
 		hideOverlay();
 	} 
 });
@@ -161,4 +175,8 @@ function hideOverlay(){
 	$("#section-overlay").hide();
 	/*hide 'y'-scroll on the body*/
 	$("body").css({"overflow-y": "scroll"});
+}
+
+function requestEventBooking(){
+
 }

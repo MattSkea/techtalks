@@ -213,7 +213,8 @@ footer .social-media-icons{
 /**************************************/
 /***********ARTICLE LAYOUT*************/
 #article-login,
-#article-register{
+#article-register,
+#article-confirm-booking{
 	/*center the login section*/
 	display: flex;
 	justify-content: center;
@@ -224,7 +225,8 @@ footer .social-media-icons{
 
 #form-login,
 #form-register,
-#form-contact-us{
+#form-contact-us,
+#form-confirm-booking{
 	display: flex;
 	// justify-content: center;
 

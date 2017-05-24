@@ -1,4 +1,4 @@
-<div id="section-register" class="section" style="display: flex">
+<div id="section-register" class="section">
 	<!-- FORM CONTAINER -->
 	<div id="article-register" class="articles">
 
