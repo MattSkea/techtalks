@@ -178,7 +178,8 @@ footer .social-media-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw; }
+  width: 100vw;
+  z-index: 100; }
 
 #form-login,
 #form-register {
@@ -200,6 +201,21 @@ footer .social-media-icons {
 
 #btn-user {
   margin-top: 20px; }
+
+/**************************************/
+/************OVERLAY LAYOUT************/
+#section-overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 20, 22, 0.5);
+  overflow: hidden;
+  z-index: 99; }
 
 /**************************************/
 /************SECTION LAYOUT************/

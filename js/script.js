@@ -48,12 +48,31 @@ $(document).on("click", ".buttonClick", function () {
 		/* show map on mobile phone */
 		toggleContainerFlex(".event-card-map-container");
 	}
+});
 
+/************** LOGIN - SHOW OVERLAY ****************/
+$(document).on("click", "#header-login-link", function(e){
+	e.preventDefault();
+	showOverlay();   
+});
 
-
+/************** REGISTER - SHOW OVERLAY *************/
+$(document).on("click", "#header-register-link", function(e){
+	e.preventDefault();
+	showOverlay();   
 });
 
 
+/****************** HIDE OVERLAY ********************/
+$(document).on("click", "#section-overlay" , function(e){
+	var target = e.target.id;
+	var compair = "section-overlay";
+
+	/*IF THE USER CLICKS OUTSIDE THE FORM, HIDE THE OVERLAY WITH LOGIN*/
+	if(target === compair){
+		hideOverlay();
+	} 
+});
 
 
 /****************************************************/
@@ -86,7 +105,7 @@ function toggleContainerFlex(containerName){
 	/*compare the ul state*/
 	if(state === "none"){
 		$(container).slideDown(400,"swing", function(){
-			 $(container).css('display', 'flex');
+			$(container).css('display', 'flex');
 		});
 		
 	} else if(state === "flex"){
@@ -117,4 +136,23 @@ function fnShowSelectedWindow(sIdWindowToShow) {
 /*HIDE CURRENT WINDOW*/
 function fnHideCurrentWindow() {
 	$(".section").hide();
+}
+
+/****************************************************/
+/******************* OVERLAY ************************/
+/****************************************************/
+/*****************OPEN OVERLAY***********************/
+function showOverlay(){
+	/*show the overlay*/
+	$("#section-overlay").css({"display": "flex"});
+	/*hide 'y'-scroll on the body*/
+	$("body").css({"overflow-y": "hidden"});
+}
+/****************************************************/
+/*****************HIDE OVERLAY***********************/
+function hideOverlay(){
+	/*hide the overlay*/
+	$("#section-overlay").hide();
+	/*hide 'y'-scroll on the body*/
+	$("body").css({"overflow-y": "scroll"});
 }
