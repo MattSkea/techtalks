@@ -178,7 +178,6 @@ footer .social-media-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   z-index: 100; }
 
 #form-login,
