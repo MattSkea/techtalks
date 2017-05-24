@@ -26,7 +26,7 @@
 	<!--*************HOME PAGE****************-->
 	<?php require_once "content/home.php"; ?>
 	<!--*************EVENTs PAGE****************-->
-	<?php require_once "content/events.php"; ?>
+	<?php require_once "content/event.php"; ?>
 
 	<!--*************REGISTER PAGE************-->
 	<!--*************LOGIN PAGE***************-->

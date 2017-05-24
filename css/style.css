@@ -308,6 +308,20 @@ footer .social-media-icons {
 .event-card-map-container {
   justify-content: center; }
 
+.event-card-event-partners-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.event-card-event-partners-content {
+  width: 320px;
+  height: 320px;
+  background-color: red; }
+
+.event-card-partners-header {
+  text-align: center; }
+
 /*MEDIA QUERY - TABLET*/
 @media screen and (min-width: 700px) {
   /**************************************/
@@ -343,6 +357,11 @@ footer .social-media-icons {
   .event-card-image {
     display: none; }
 
+  .event-card-content-pricing {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 32px; }
+
   /**************************************/
   .event-card-content-big {
     display: flex;
@@ -355,6 +374,28 @@ footer .social-media-icons {
 
   .event-card-image-big {
     display: block; }
+
+  .event-card-map-container {
+    justify-content: flex-end;
+    display: flex; }
+
+  .event-card-map-img {
+    padding: 32px;
+    width: 100%; }
+
+  .event-card-event-partners-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; }
+
+  .event-card-event-partners-content {
+    width: 24%;
+    height: 0;
+    padding-bottom: 50%;
+    background-color: red;
+    flex: 0 1 calc(50% - 1em); }
 
   /***********END HEADER LAYOUT**********/ }
 /*MEDIA QUERY - SMALL PC*/
@@ -409,6 +450,26 @@ footer .social-media-icons {
 
   .event-card-image-big {
     display: block; }
+
+  .event-card-event-partners-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+
+  .event-card-event-partners-content {
+    width: 24%;
+    height: 0;
+    padding-bottom: 25%;
+    background-color: red;
+    flex: 0 2 calc(25% - 1em); }
+
+  .event-card-map-img {
+    padding: 32px;
+    width: 100%; }
+
+  .event-card-map-container {
+    display: flex; }
 
   /*************event LAYOUT end**************/
   /*************event LAYOUT ENDS**************/

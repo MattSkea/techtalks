@@ -1,4 +1,4 @@
-S<div id="section-event" class="section">
+<div id="section-event" class="section">
 
 
 	<!-- Margin container-->
@@ -26,7 +26,7 @@ S<div id="section-event" class="section">
 	  				<div class=" event-card-content-location-text">Founders - Skelbækgade 2 1717 København</div>
 					</div>
 					<div class="event-card-map-container">
-						<img src="img/content/test-img-map-320x320.jpg">
+						<img class="event-card-map-img" src="img/content/test-img-map-320x320.jpg">
 					</div>
 				</div>
 				<div class="event-card-content-pricing">
@@ -37,9 +37,21 @@ S<div id="section-event" class="section">
   					<div class="button-green button" >Book now</div>
   				</div>
 				</div>
+				<div class="event-card-partners-header"><h2>Partners</h2></div>
+				<div class="event-card-event-partners-container">
+					
+  				<div class="event-card-event-partners-content">
+  					<img>test
+  				</div>
+  				<div class="event-card-event-partners-content">
+  					<img>test
+  				</div>
+
+				</div>
 				<div class="event-card-content-tags">
   				<div class="event-card-content-tags-tags">angularJS, Ionic, lorem, ipsum,</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
