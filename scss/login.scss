@@ -4,7 +4,7 @@
 /***********SECTION LAYOUT*************/
 
 #section-login{
-	display: none;
+	// display: none;
 	height: 100%;
 	width: 100%;
 	/*setup the section in a column layout*/
@@ -12,9 +12,10 @@
 }
 // /**************************************/
 // /***********ARTICLE LAYOUT*************/
-#article-login{
+#article-login, 
+#article-register{
 	/*center the login section*/
-	display: none;
+	// display: none;
 	justify-content: center;
 	align-items: center;
 	height: 100%;

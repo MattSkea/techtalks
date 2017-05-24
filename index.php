@@ -13,7 +13,7 @@
 
 	<!-- CUSTOM CSS SHEETS-->
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/login.css">
+	<!-- <link rel="stylesheet" href="css/login.css"> -->
 </head>
 <body>
 
@@ -21,7 +21,7 @@
 	<!-- BODY -->
 
 	<!--**************************************-->
-	<!--********* HEADERNAVIGATION ***********-->
+	<!--********* HEADER NAVIGATION **********-->
 	<?php require_once "content/header-navigation.php"; ?>
 
 	<!--*************HOME PAGE****************-->
@@ -34,10 +34,9 @@
 	<!--*************LOGIN PAGE***************-->
 	<?php require_once "content/login.php"; ?>
 
-	<!-- FOOTER -->
-	<footer>
-		
-	</footer>
+	<!--**************************************-->
+	<!--********* FOOTER NAVIGATION **********-->
+	<?php require_once "content/footer-navigation.php"; ?>
 
 	<script src="https://use.fontawesome.com/aa9b1b4b5c.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

@@ -1,12 +1,15 @@
 	<!-- HEADER -->
 	<header>
-		<a href="index.php"><img class="logo" src="img/site-layout/logo.svg" alt="Techtalks logo"></a>
+		<a href="index.php" class="mobile-logo"><img class="logo" src="img/site-layout/logo.svg" alt="Techtalks logo"></a>
 
 
 		<!-- MAIN NAVIGATION -->
 		<nav class="flex-nav">
 			<a href="#" class="toggleNav"><div class="fa fa-bars" aria-hidden="true"></div> Menu</a>
+
+
 			<ul>
+				<li><a href="index.php" class="pc-logo"><img src="img/site-layout/logo.svg"></a></li>
 				<li><a class="link" data-go-to="section-events">Events</a></li>
 				<li><a class="link" data-go-to="section-our-partners">Our partners</a></li>
 				<li><a class="link" data-go-to="section-about-us">About us</a></li>		

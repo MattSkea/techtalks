@@ -43,7 +43,7 @@ footer a{
 	width: 120px;
 }
 
-.flex-nav{
+header .flex-nav{
 	/* Flex Container */
 	ul {
 		border-top: 1px solid $lightenPrimaryColor;
@@ -54,6 +54,10 @@ footer a{
 		/* USE display:flex for laptop view */
 		display: none;
 
+		// .pc-logo{
+		// 	display: none;
+		// }
+
 		li a{
 			cursor: pointer;
 		}
@@ -62,24 +66,30 @@ footer a{
 
 /* Button */
 .button{
-  margin:5px;
-  width:150px;
-  height:37px;
-  text-align:center;
-  line-height:37px;
-  border-radius:3px;
-  cursor:pointer;
+	margin:5px 5px 14px 5px;
+	width:150px;
+	height:37px;
+	text-align:center;
+	line-height:37px;
+	border-radius:3px;
+	cursor:pointer;
 }
 .buttonClick{
 	cursor:pointer;
 }
 .button-green{
-  background:#8bc34a;
-  border: 1.4px solid #7cb342;
-  color:white;
-  box-shadow:1px 1px #689f38;
-
+	background:$accent-color-1;
+	border: 1.4px solid #7cb342;
+	color:white;
+	box-shadow:1px 1px #689f38;
 }
+.button-green:hover{
+	background-color:$darkenAcctColor1;
+}
+.button-green:active{
+	background-color:$lightenAcctColor1;
+}
+
 /*SEARCH BAR STYLING*/
 .search-bar-form{
 	width: 100%;
@@ -91,7 +101,7 @@ footer a{
 	justify-content: center;
 	text-align: center;
 
-	padding: 20px 5px;
+	padding: 6px 5px;
 	
 }
 
@@ -136,7 +146,34 @@ footer a{
 }
 /**************************************/
 /***********END HEADER LAYOUT**********/
+
+/*********START FOOTER LAYOUT**********/
 /**************************************/
+footer .social-media-icons{
+	display: flex;
+	justify-content: space-around;
+
+	border-top: 1px solid $lightenPrimaryColor;
+	border-bottom: 1px solid $lightenPrimaryColor;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	/* USE display:flex for laptop view */
+	// display: none;
+	li{
+		width: 25%;
+
+	}
+
+	li a{
+
+		cursor: pointer;
+	}
+}
+/***********END FOOTER LAYOUT**********/
+/**************************************/
+
+
 
 /**************************************/
 /*****START DEFAULT LAYOUT LAYOUT******/
@@ -154,83 +191,59 @@ footer a{
 .form{
 	display: flex;
 	flex-direction: column;
-	// align-items:  left; 
-	// justify-content: center;
-	/*set a width for the form */
-	width: 100vw;
-
-	// padding-top: 10px;
-	// padding-bottom: 20px ;
-
-	background-color: #EEEEEE;
-}
-.form:last-child{
-	margin-bottom: 20px;
-}
-/*form group styling*/
-.form-group{
-	display: flex;
-
-	// padding: 10px 8px;
-}
-.form-submit-btn div,
-.form label{
-	font-size: 20px;
-}
-.form-submit-btn div{
-	color: #fff;	
 }
 
-.form-submit-btn{
-	background-color: $accent-color-1;
-	width: 240px;
-	height: 36px;
-	/*background-color: #000;*/
-	padding: 6px;
-
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-
-	cursor: pointer;
-}
-.form-submit-btn:hover{
-	background-color: $darkenAcctColor1;
-}
-
-.form-submit-btn:active {
-	background-color: $lightenAcctColor1;
-}
-/**************************************/
-/***********LOGIN LAYOUT***************/
 /**************************************/
 /***********SECTION LAYOUT*************/
-#section-login{
+#section-login,
+#section-register{
 	/*setup the section in a column layout*/
-	flex-direction: column;
-
-	height: 100%;
+	// flex-direction: column;
+	// justify-content: center;
 }
 /**************************************/
 /***********ARTICLE LAYOUT*************/
-#article-login{
+#article-login,
+#article-register{
 	/*center the login section*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-#form-login{
-	display: flex;
-	justify-content: space-between;
-	height: 300px;
 
+	width: 100vw;
+
+}
+
+
+
+#form-login,
+#form-register{
+	display: flex;
+	// justify-content: center;
+
+	/*increase padding for table & pc media queries*/
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 16px;
+
+	background-color: $light-text-color;
+
+	input{
+		width: 280px;
+		height: 30px;
+		
+		padding: 2px 0 0 4px;
+		margin-bottom: 16px;
+	}
+
+	.button{
+		margin: 0 auto;
+	}
 }
 
 #btn-user{
 	margin-top: 20px;
 }
-
 /**************************************/
 /************SECTION LAYOUT************/
 /**************************************/
@@ -241,14 +254,16 @@ footer a{
 /*****END DEFAULT LAYOUT LAYOUT******/
 /**************************************/
 
+
+
 /**************************************/
 /*************HOME LAYOUT**************/
 /**************************************/
 
 
-/*************event LAYOUT**************/
+/*************EVENT LAYOUT**************/
 #section-event{
-	display:flex;//comment this after done
+	display:none;//comment this after done
 	flex-direction:column;
 
 }
@@ -271,15 +286,15 @@ footer a{
 	margin-top:25px;
 }
 .event-header-center{
-width:33.33%;
-text-align:center;
+	width:33.33%;
+	text-align:center;
 
 }
 
 .event-mobile-search{
 	display:none !important;
 }
-/*************event LAYOUT ENDS**************/
+/*************EVENT LAYOUT ENDS**************/
 /*************EVENT CARD**************/
 .event-card{
 	background:white;
@@ -307,27 +322,27 @@ text-align:center;
 }
 .event-card-content-time-icon{
 	display: block;
-  text-indent: -9999px;
-  width: 50px;
-  height: 50px;
-  background: url(../img/site-layout/clock.svg);
-  background-size: 50px 50px;
-  margin-left:15px;
+	text-indent: -9999px;
+	width: 50px;
+	height: 50px;
+	background: url(../img/site-layout/clock.svg);
+	background-size: 50px 50px;
+	margin-left:15px;
 }
 .event-card-content-location-icon{
 	display: block;
-  text-indent: -9999px;
-  width: 50px;
-  height: 50px;
-  background: url(../img/site-layout/map_pointer.svg);
-  background-size: 50px 50px;
-  margin-left:15px;
+	text-indent: -9999px;
+	width: 50px;
+	height: 50px;
+	background: url(../img/site-layout/map_pointer.svg);
+	background-size: 50px 50px;
+	margin-left:15px;
 }
 .event-card-content-pricing-price{
-line-height:50px;
+	line-height:50px;
 }
 .event-card-content-time-text,.event-card-content-location-text{
-	 margin-left:15px;
+	margin-left:15px;
 
 }
 .event-card-content-tags-tags{
@@ -353,27 +368,42 @@ line-height:50px;
 	padding-top:6px;
 	padding-bottom:6px;
 }
-	.event-card-content-big{
-		display:flex;
-		flex-direction: row;
-	}
-	.event-card-image-big{
-		margin:16px;
-			padding-top:10px;
+.event-card-content-big{
+	display:flex;
+	flex-direction: row;
+}
+.event-card-image-big{
+	margin:16px;
+	padding-top:10px;
 	border-top: 1px solid $lightenPrimaryColor;
-	}
-	.event-card-content-time-container{
-		display:flex;
-		flex-direction: row;
-		justify-content: center;
-	}
+}
+.event-card-content-time-container{
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+}
 /*************EVENT CARD ENDS**************/
 
 
 /*MEDIA QUERY - TABLET*/
-@media screen and(max-width: 800px){
+@media screen and(min-width: 700px){
+	/**************************************/
+	/**********START HEADER LAYOUT*********/
+	header .flex-nav{
+		/*Hide toggle navigation buttton*/
+		.toggleNav{
+			display: none;
+		}
+		/* Flex Container */
+		ul {
+			display: flex;
+		}
+	}
 
-/*************event LAYOUT**************/
+	/**************************************/
+	/***********END HEADER LAYOUT**********/
+
+	/*************event LAYOUT**************/
 	.event-card-image{
 		display:flex;
 		width: 100%;
@@ -385,15 +415,45 @@ line-height:50px;
 		display:block;
 	}
 	.event-card-content-location{
-	margin-top:10px;
+		margin-top:10px;
+	}
+	/*************event LAYOUT ends**************/
 }
-}
-/*************event LAYOUT ends**************/
+
 /*MEDIA QUERY - SMALL PC*/
-@media screen and(max-width: 1024px){
+@media screen and(min-width: 1024px){
+	/**************************************/
+	/***********START HEADER LAYOUT**********/
+	header {
+		.mobile-logo{
+			display: none;
+		}
+		.flex-nav{
+			/*Hide toggle navigation buttton*/
+			.toggleNav{
+				display: none;
+			}
+			/* Flex Container */
+			ul {
+				li {
+					flex: 1;
 
+					.pc-logo{
+						padding:10px;
 
-/*************event LAYOUT**************/
+						img{
+							width: 140px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**************************************/
+	/***********END HEADER LAYOUT**********/
+
+	/*************event LAYOUT**************/
 	.event-container{
 		width:100vw;
 		background-color:red;
@@ -401,23 +461,23 @@ line-height:50px;
 
 	}
 	.event-header-center{
-	width:33.33%;
-	text-align:center;
+		width:33.33%;
+		text-align:center;
 	}
 	.event-header-left{
-	width:33.33%;
-	text-align:center;
+		width:33.33%;
+		text-align:center;
 	}
 	.event-header-right{
-	width:33.33%;
-	text-align:center;
+		width:33.33%;
+		text-align:center;
 	}
 	.event-mobile-search{
 		display:inline-block !important;
 
 	}
 
-/*************event LAYOUT ENDS**************/
+	/*************event LAYOUT ENDS**************/
 
-/*************EVENT CARD**************/
+	/*************EVENT CARD**************/
 }

@@ -3,15 +3,14 @@
 /**************************************/
 /***********SECTION LAYOUT*************/
 #section-login {
-  display: none;
   height: 100%;
   width: 100%;
   /*setup the section in a column layout*/
   flex-direction: column; }
 
-#article-login {
+#article-login,
+#article-register {
   /*center the login section*/
-  display: none;
   justify-content: center;
   align-items: center;
   height: 100%; }
