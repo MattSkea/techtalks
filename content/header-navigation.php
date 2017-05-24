@@ -12,8 +12,7 @@
 				<li class="pc-logo"><a href="index.php"><img src="img/site-layout/logo.svg"></a></li>
 				<li><a class="link" data-go-to="section-events">Events</a></li>
 				<li><a class="link" data-go-to="section-our-partners">Our partners</a></li>
-				<li><a class="link" data-go-to="section-about-us">About us</a></li>		
-				<li><a class="link" data-go-to="section-contact-us">Contact us</a></li>		
+				<li><a class="link" id="header-contact-link" data-go-to="section-contact-us">Contact us</a></li>		
 				<li><a class="link" id="header-register-link" data-go-to="section-register">Register</a></li>		
 				<li><a class="link" id="header-login-link"  data-go-to="section-login">Login</a></li>		
 			</ul>

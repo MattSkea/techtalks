@@ -3,8 +3,12 @@
 		<div>
 			<!--************REGISTER****************-->
 			<?php require_once "register.php"; ?>
-			<!--**************LOGIN*****************-->
+
+			<!--*************LOGIN******************-->
 			<?php require_once "login.php"; ?>
+			
+			<!--************CONTACT US**************-->
+			<?php require_once "contact-us.php"; ?>
 		</div>
 	</div>
 </div>

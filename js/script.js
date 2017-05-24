@@ -62,6 +62,12 @@ $(document).on("click", "#header-register-link", function(e){
 	showOverlay();   
 });
 
+/************** CONTACT - SHOW OVERLAY **************/
+$(document).on("click", "#header-contact-link", function(e){
+	e.preventDefault();
+	showOverlay();   
+});
+
 
 /****************** HIDE OVERLAY ********************/
 $(document).on("click", "#section-overlay" , function(e){
