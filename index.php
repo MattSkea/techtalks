@@ -27,7 +27,8 @@
 	<?php require_once "content/home.php"; ?>
 	<!--*************EVENTs PAGE****************-->
 	<?php require_once "content/event.php"; ?>
-
+		<!--*************EVENT BOOKING****************-->
+	<?php require_once "content/book-event-user.php"; ?>
 	<!--*************REGISTER PAGE************-->
 	<!--*************LOGIN PAGE***************-->
 	<?php require_once "content/overlay.php"; ?>

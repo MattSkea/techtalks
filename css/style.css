@@ -326,6 +326,46 @@ footer .social-media-icons {
 .event-card-partners-header {
   text-align: center; }
 
+/**********book event*********/
+.book-event-container {
+  width: 100vw;
+  background-color: white;
+  padding: 16px; }
+
+.section-book-event-user {
+  display: flex;
+  justify-content: center; }
+
+.book-event-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #c7c7c7;
+  padding-bottom: 20px; }
+
+.book-event-heading {
+  border-bottom: 1px solid #c7c7c7; }
+
+.book-event-left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.book-event-right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.book-event-content-times {
+  display: flex;
+  flex-direction: column; }
+
+.book-event-right-dropdown {
+  margin: 5px; }
+
+/**********book event ends*********/
 /*MEDIA QUERY - TABLET*/
 @media screen and (min-width: 700px) {
   /**************************************/
@@ -401,7 +441,23 @@ footer .social-media-icons {
     background-color: red;
     flex: 0 1 calc(50% - 1em); }
 
-  /***********END HEADER LAYOUT**********/ }
+  /***********END HEADER LAYOUT**********/
+  /*************EVENT book**************/
+  .book-event-container {
+    width: 100vw;
+    background-color: white; }
+
+  .book-event-content-container {
+    display: flex;
+    flex-direction: row; }
+
+  .book-event-left {
+    width: 50%; }
+
+  .book-event-right {
+    width: 50%; }
+
+  /*************EVENT book ends**************/ }
 /*MEDIA QUERY - SMALL PC*/
 @media screen and (min-width: 1024px) {
   /**************************************/
@@ -477,6 +533,27 @@ footer .social-media-icons {
 
   /*************event LAYOUT end**************/
   /*************event LAYOUT ENDS**************/
-  /*************EVENT CARD**************/ }
+  /*************EVENT book**************/
+  .book-event-container {
+    width: 1024px;
+    padding: 16px; }
+
+  .book-event-content-container {
+    display: flex;
+    flex-direction: row; }
+
+  .book-event-content-times {
+    display: flex;
+    flex-direction: row; }
+
+  #reserve_seat_book_user {
+    width: 50px; }
+
+  .book-event-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
+
+  /*************EVENT book ends**************/ }
 
 /*# sourceMappingURL=style.css.map */
