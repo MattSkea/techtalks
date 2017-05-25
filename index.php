@@ -31,6 +31,9 @@
 	<?php require_once "content/event.php"; ?>
 		<!--*************EVENT BOOKING****************-->
 	<?php require_once "content/book-event-user.php"; ?>
+	<?php require_once "content/book-event-guest.php"; ?>
+	<!--*************user-profile****************-->
+	<?php require_once "content/user-view-profile.php"; ?>
 	<!--*************REGISTER PAGE************-->
 	<!--*************LOGIN PAGE***************-->
 	<?php require_once "content/overlay.php"; ?>

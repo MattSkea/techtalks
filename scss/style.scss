@@ -440,6 +440,12 @@ display:flex;
 flex-direction:column;
 align-items:center;
 }
+.view-profile-left{
+width:100%;
+display:flex;
+flex-direction:column;
+}
+
 
 .book-event-right{
 width:100%;
@@ -456,6 +462,15 @@ align-items:center;
 }
 
 /**********book event ends*********/
+
+
+/*************EVENT book guest**************/
+.book-event-guest-inputs{
+	display:flex;
+	flex-direction:column;
+
+}
+/*************EVENT book guest end**************/
 
 /*MEDIA QUERY - TABLET*/
 @media screen and(min-width: 700px){
@@ -580,7 +595,10 @@ width:50%;
 width:50%;
 }
 /*************EVENT book ends**************/
+/*************EVENT book guest**************/
 
+
+/*************EVENT book guest end**************/
 }
 
 /*MEDIA QUERY - SMALL PC*/
@@ -710,4 +728,10 @@ width:50%;
 	align-items:flex-end;
 }
 /*************EVENT book ends**************/
+
+
+/*************EVENT book guest**************/
+
+
+/*************EVENT book guest end**************/
 }
