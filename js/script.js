@@ -77,9 +77,9 @@ $(document).on("click", ".bookEvent" , function(e){
 	var showSection = "section-confirm-booking";
 
 	var compare = "section-overlay";
-
-	showOverlay();    
-	fnShowSelectedWindow(showSection) ;
+	requestEventBooking();
+	// showOverlay();    
+	// fnShowSelectedWindow(showSection) ;
 });
 
 
@@ -178,5 +178,22 @@ function hideOverlay(){
 }
 
 function requestEventBooking(){
-
+	swal({
+		title: "Confirm booking",
+		text: "Submit cooking",
+		type: "info",
+		showCancelButton: true,
+		closeOnConfirm: false,
+		confirmButtonColor: "#8bc34a",
+		showLoaderOnConfirm: true,
+	},
+	function(){
+		setTimeout(function(){
+			swal({
+				title:"Booking complete",
+				type:"success",
+				confirmButtonColor: "#8bc34a"
+			});
+		}, 2000);
+	});
 }

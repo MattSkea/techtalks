@@ -10,6 +10,8 @@
 
 	<!--IMPORTED FONTS-->
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<!--Import alerts-->
+	<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 
 	<!-- CUSTOM CSS SHEETS-->
 	<link rel="stylesheet" href="css/style.css">
@@ -36,7 +38,11 @@
 	<!--********* FOOTER NAVIGATION **********-->
 	<?php require_once "content/footer-navigation.php"; ?>
 
+	<!--Import jquery-->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<!--Import sweet alerts-->
+	<script src="dist/sweetalert.min.js"></script>
+	<!--Import font awesome-->
 	<script src="https://use.fontawesome.com/aa9b1b4b5c.js"></script>
 
 	<!-- CUSTOM JS SHEETS-->

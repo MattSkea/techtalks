@@ -236,6 +236,12 @@ footer .social-media-icons {
 /**************************************/
 /*************HOME LAYOUT**************/
 /**************************************/
+.home-contents {
+  display: flex;
+  flex-direction: column; }
+
+/*************HOME END*****************/
+/**************************************/
 /*************event LAYOUT**************/
 .event-card {
   background: white;
@@ -326,6 +332,16 @@ footer .social-media-icons {
 .event-card-partners-header {
   text-align: center; }
 
+/**********QUICK RESONSIVE SETUP**********/
+.mobile {
+  display: block; }
+
+.tablet {
+  display: none; }
+
+.small-pc {
+  display: none; }
+
 /*MEDIA QUERY - TABLET*/
 @media screen and (min-width: 700px) {
   /**************************************/
@@ -341,6 +357,15 @@ footer .social-media-icons {
     header .flex-nav .pc-logo {
       display: none; }
 
+  /***********END HEADER LAYOUT**********/
+  /**************************************/
+  /*************HOME LAYOUT**************/
+  /**************************************/
+  .home-contents {
+    flex-direction: row; }
+
+  /*************HOME END*****************/
+  /**************************************/
   /**************************************/
   /*************event LAYOUT**************/
   .event-card-content-time-container {
@@ -401,7 +426,15 @@ footer .social-media-icons {
     background-color: red;
     flex: 0 1 calc(50% - 1em); }
 
-  /***********END HEADER LAYOUT**********/ }
+  /**********QUICK RESONSIVE SETUP**********/
+  .mobile {
+    display: none; }
+
+  .tablet {
+    display: block; }
+
+  .small-pc {
+    display: none; } }
 /*MEDIA QUERY - SMALL PC*/
 @media screen and (min-width: 1024px) {
   /**************************************/
@@ -477,6 +510,15 @@ footer .social-media-icons {
 
   /*************event LAYOUT end**************/
   /*************event LAYOUT ENDS**************/
-  /*************EVENT CARD**************/ }
+  /*************EVENT CARD**************/
+  /**********QUICK RESONSIVE SETUP**********/
+  .mobile {
+    display: none; }
+
+  .tablet {
+    display: none; }
+
+  .small-pc {
+    display: block; } }
 
 /*# sourceMappingURL=style.css.map */
