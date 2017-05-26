@@ -34,7 +34,7 @@
   					200 DKK
   				</span>
   				<div class="event-card-content-pricing-button">
-  					<div class="button-green button bookEvent" data-go-to="section-confirm-booking" data-book="eventNumber-43">Book now</div>
+  					<div class="button-green button link" data-go-to="section-book-event-user" data-book="eventNumber-43">Book now</div>
   				</div>
 				</div>
 			<div class="our-partners-bg-white">
