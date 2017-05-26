@@ -392,12 +392,17 @@ footer .social-media-icons{
 .event-card-event-partners-content{
 	width:320px;
 	height:320px;
-	background-color:red;
+	display:flex;
+	justify-content:center;
 }
 .event-card-partners-header{
 	text-align:center;
 }
-
+.event-partners-image-partner{
+	width:100px;
+	height:100px;
+	padding-top:30%;
+}
 
 /**********QUICK RESONSIVE SETUP**********/
 .mobile{
@@ -742,7 +747,6 @@ align-items:center;
 		width:24%;
 		height:0;
 		padding-bottom:50%;
-		background-color:red;
 		flex: 0 1 calc(50% - 1em);
 	}
 
@@ -859,6 +863,13 @@ width:50%;
 	width:25%;
 
 }
+.our-partners-bg-white{
+	background-color:white;
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
 /*************our partners ends**************/
 
 
@@ -945,7 +956,6 @@ width:50%;
 		width:24%;
 		height:0;
 		padding-bottom:25%;
-		background-color:red;
 		flex: 0 2 calc(25% - 1em);
 	}
 	.event-card-map-img{
@@ -1042,6 +1052,15 @@ width:50%;
 	display:flex;
 	flex-direction:row;
 
+}
+.our-partners-bg-white{
+	background-color:white;
+	width:1024px;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	margin:0 auto;
 }
 /*************our partners ends**************/
 

@@ -137,16 +137,19 @@
 	</div>
 </div>
 <!-- 	events ends  partners start-->
-				<div class="event-card-partners-header"><h3>Our partners</h3></div>
+	<div class="our-partners-bg-white">
+	<div class="event-card-partners-header"><h3>Our partners</h3>
+				</div>
 				<div class="event-card-event-partners-container">
 					
   				<div class="event-card-event-partners-content">
-  					<img>test
+  					<a target="blank" href="https://www.microsoft.com/da-dk/"><img class="event-partners-image-partner" src="img/content/partner_image_1.jpg"></a>
   				</div>
   				<div class="event-card-event-partners-content">
-  					<img>test
+  				<a target="blank" href="http://www.cisco.com/">	<img class="event-partners-image-partner" src="img/content/partner_image_2.jpg"></a>
   				</div>
 
 				</div>
+			</div>
 <!-- partners ends-->
 </div>
