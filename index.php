@@ -29,6 +29,8 @@
 	<?php require_once "content/home.php"; ?>
 	<!--*************EVENTs PAGE****************-->
 	<?php require_once "content/event.php"; ?>
+		<?php require_once "content/event-2.php"; ?>
+		<?php require_once "content/event-3.php"; ?>
 	<?php require_once "content/events.php"; ?>
 	<!--*************our pertners****************-->
 	<?php require_once "content/our-partners.php"; ?>
