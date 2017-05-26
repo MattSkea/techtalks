@@ -236,10 +236,6 @@ footer .social-media-icons {
 /**************************************/
 /*************HOME LAYOUT**************/
 /**************************************/
-.home-contents {
-  display: flex;
-  flex-direction: column; }
-
 /*************HOME END*****************/
 /**************************************/
 /*************event LAYOUT**************/
@@ -490,7 +486,29 @@ footer .social-media-icons {
   background-size: 50px 50px;
   margin-left: 15px; }
 
+.buttonGoUp {
+  position: relative;
+  z-index: 50; }
+
 /*************EVENTs ends**************/
+/*************Home starts**************/
+.home-content-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.home-contents {
+  width: 100;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.home-content-text {
+  padding: 16px; }
+
+/*************Home ends**************/
 /*MEDIA QUERY - TABLET*/
 @media screen and (min-width: 700px) {
   /**************************************/
@@ -510,9 +528,6 @@ footer .social-media-icons {
   /**************************************/
   /*************HOME LAYOUT**************/
   /**************************************/
-  .home-contents {
-    flex-direction: row; }
-
   /*************HOME END*****************/
   /**************************************/
   /**************************************/
@@ -626,7 +641,13 @@ footer .social-media-icons {
     width: 100%;
     height: auto; }
 
-  /*************EVENTs ends**************/ }
+  /*************EVENTs ends**************/
+  /*************Home starts**************/
+  .home-contents {
+    width: 100%;
+    flex-direction: row; }
+
+  /*************Home ends**************/ }
 /*MEDIA QUERY - SMALL PC*/
 @media screen and (min-width: 1024px) {
   /**************************************/
@@ -750,6 +771,11 @@ footer .social-media-icons {
     padding-bottom: 33.33%;
     flex: 0 2 calc(33.33% - 1em); }
 
-  /*************EVENTs ends**************/ }
+  /*************EVENTs ends**************/
+  /*************Home starts**************/
+  .home-contents {
+    width: 1024px; }
+
+  /*************Home ends**************/ }
 
 /*# sourceMappingURL=style.css.map */
