@@ -26,7 +26,7 @@
 			<div class="margin-container">
 			<div class="our-partners-about-fix-size">
 				<div class="our-partners-get-container">
-					<div class="our-partners-get-image"><img src="img/site-layout/improve_image.jpg"></div>
+					<div class="our-partners-get-image"><i class="fa fa-line-chart fa-5x" aria-hidden="true"></i></div>
 					<div>
 						<h3>Improve your brand</h3>
 						<p>
@@ -36,7 +36,7 @@
 				</div>
 
 				<div class="our-partners-get-container">
-					<div class="our-partners-get-image"><img src="img/site-layout/competence_image.jpg"></div>
+					<div class="our-partners-get-image"><i class="fa fa-connectdevelop fa-5x" aria-hidden="true"></i></div>
 					<div>
 						<h3>Competence development</h3>
 						<p>
@@ -46,7 +46,7 @@
 				</div>
 
 				<div class="our-partners-get-container">
-					<div class="our-partners-get-image"><img src="img/site-layout/networking_image.jpg"></div>
+					<div class="our-partners-get-image"><i class="fa fa-handshake-o fa-5x" aria-hidden="true "></i></div>
 					<div>
 						<h3>Networking</h3>
 						<p>
@@ -56,7 +56,7 @@
 				</div>
 
 				<div class="our-partners-get-container">
-					<div class="our-partners-get-image"><img src="img/site-layout/neutral_image.jpg"></div>
+					<div class="our-partners-get-image"><i class="fa fa-coffee fa-5x" aria-hidden="true"></i></div>
 					<div>
 						<h3>Neutral meeting place</h3>
 						<p>
