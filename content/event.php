@@ -25,8 +25,8 @@
 	  				<span class=" event-card-content-location-icon"></span>
 	  				<div class=" event-card-content-location-text">Founders - Skelbækgade 2 1717 København</div>
 					</div>
-					<div class="event-card-map-container">
-						<img class="event-card-map-img" src="img/content/test-img-map-320x320.jpg">
+					<div class="event-card-map-container" id="map">
+						<!--<img class="event-card-map-img" src="img/content/test-img-map-320x320.jpg">-->
 					</div>
 				</div>
 				<div class="event-card-content-pricing">

@@ -37,7 +37,7 @@ We strongly encourage anyone with a passion for game development and culture to 
 	  				<div class=" event-card-content-location-text">Founders - Skelbækgade 2 1717 København</div>
 					</div>
 					<div class="event-card-map-container">
-						<img class="event-card-map-img" src="img/content/test-img-map-320x320.jpg">
+						<img class="event-card-map-img" src="img/content/test-img-map-320x320.jpg"> 
 					</div>
 				</div>
 				<div class="event-card-content-pricing">

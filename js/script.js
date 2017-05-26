@@ -152,6 +152,7 @@ function fnShowSelectedWindow(sIdWindowToShow) {
 	console.log(sIdWindowToShow)
 	/*show the selected window*/
 	$("#" + sIdWindowToShow).css({"display": "flex"});
+	google.maps.event.trigger(map, 'resize');
 }
 /*HIDE CURRENT WINDOW*/
 function fnHideCurrentWindow() {
@@ -197,3 +198,21 @@ function requestEventBooking(){
 		}, 2000);
 	});
 }
+
+function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 5,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      };
+$(document).ready(function() {
+    $(window).resize(function() {
+        google.maps.event.trigger(map, 'resize');
+    });
+    google.maps.event.trigger(map, 'resize');
+});
