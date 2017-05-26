@@ -30,7 +30,9 @@
 	<!--*************EVENTs PAGE****************-->
 	<?php require_once "content/event.php"; ?>
 	<?php require_once "content/events.php"; ?>
-		<!--*************EVENT BOOKING****************-->
+	<!--*************our pertners****************-->
+	<?php require_once "content/our-partners.php"; ?>
+	<!--*************EVENT BOOKING****************-->
 	<?php require_once "content/book-event-user.php"; ?>
 	<?php require_once "content/book-event-guest.php"; ?>
 	<!--*************user-profile****************-->

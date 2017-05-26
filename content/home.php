@@ -26,7 +26,7 @@
 	</div>
 
 <!-- 	events  -->
-<div id="section-events" class="">
+<div id="" class="">
 	<div class="margin-container">
 		<div class="events-container">
 		<h3 class="events-heading"> Upcoming events</h3>
