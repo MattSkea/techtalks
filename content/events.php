@@ -31,7 +31,7 @@
 			  					<div>
 			  						<h4>Copenhagen AngularJS Meet-up</h4>
 			  					</div>
-			  					<div class="button-green button bookEvent" data-go-to="section-confirm-booking" data-book="eventNumber-43">Book now
+			  					<div class="button-green button link" data-go-to="section-event" data-book="eventNumber-43">Book now
 			  					</div>
 		  					</div>
 	  				</div>
@@ -63,7 +63,7 @@
 			  					<div>
 			  						<h4>Copenhagen AngularJS Meet-up</h4>
 			  					</div>
-			  					<div class="button-green button bookEvent" data-go-to="section-confirm-booking" data-book="eventNumber-43">Book now
+			  					<div class="button-green button link" data-go-to="section-event" data-book="eventNumber-43">Book now
 			  					</div>
 		  					</div>
 	  				</div>
@@ -95,7 +95,7 @@
 			  					<div>
 			  						<h4>Copenhagen AngularJS Meet-up</h4>
 			  					</div>
-			  					<div class=" buttonGoUp link button-green button " data-go-to="book-event-guest" data-book="eventNumber-43">Book now
+			  					<div class=" link button-green button " data-go-to="section-event" data-book="eventNumber-43">Book now
 			  					</div>
 		  					</div>
 	  				</div>
