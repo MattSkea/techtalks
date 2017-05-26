@@ -18,7 +18,7 @@
 
 
             <!-- SUBMIT BUTTON -->
-            <div class="button-green button link" data-go-to="section-logged-home"">Login</div>
+            <a href="index-logged-user.php"><div class="button-green button" >Login</div></a>
  
         </form>
     </div>
