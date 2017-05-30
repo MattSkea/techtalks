@@ -94,6 +94,10 @@ $(document).on("click", "#section-overlay" , function(e){
 	} 
 });
 
+/******************CREATE USER **********************/
+$(document).on("click", ".register-button", function () {
+    fnCreateUser();
+});
 
 /****************************************************/
 /*******************FUNCTIONS************************/
@@ -200,19 +204,43 @@ function requestEventBooking(){
 }
 
 function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 5,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      };
+	var uluru = {lat: -25.363, lng: 131.044};
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 5,
+		center: uluru
+	});
+	var marker = new google.maps.Marker({
+		position: uluru,
+		map: map
+	});
+};
 $(document).ready(function() {
-    $(window).resize(function() {
-        google.maps.event.trigger(map, 'resize');
-    });
-    google.maps.event.trigger(map, 'resize');
+	$(window).resize(function() {
+		google.maps.event.trigger(map, 'resize');
+	});
+	google.maps.event.trigger(map, 'resize');
 });
+
+
+/****************************************************/
+/****************REGISTER USER***********************/
+/**** - using ajax                               ****/   
+/*CREATE USER*/
+function fnCreateUser() {
+	/*setup ajax post*/
+	$.ajax({
+		"type": "POST",
+		"url": "./services/api-user-create.php",
+		"data": $("#form-register").serialize(),
+		"cache": false,
+		"processData": false,
+		success: function (jData) {
+			/*update the users table*/
+			// fnReadUserRegister();
+			swal("SIGNUP", "YOU HAVE SUCCESSFULLY REGISTERED", "success");
+		},
+		error: function (jData) {
+			console.log("error - trying to create a user");
+		}
+	});
+}

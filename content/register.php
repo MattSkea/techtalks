@@ -20,7 +20,7 @@
 			<input id="txt-register-mobile" name="mobile" type="text" placeholder="Mobile number">
 
 			<label for="txt-register-password">Password</label>
-			<input id="txt-register-password" name="password" type="text" placeholder="Password">
+			<input id="txt-register-password" name="pass" type="text" placeholder="Password">
 			
 			<label for="txt-register-password-re">Re-password</label>
 			<input id="txt-register-password-re" type="text" placeholder="Re-enter password">

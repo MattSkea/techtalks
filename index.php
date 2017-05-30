@@ -1,3 +1,7 @@
+<?php
+include 'inc/db.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +33,8 @@
 	<?php require_once "content/home.php"; ?>
 	<!--*************EVENTs PAGE****************-->
 	<?php require_once "content/event.php"; ?>
-		<?php require_once "content/event-2.php"; ?>
-		<?php require_once "content/event-3.php"; ?>
+	<?php require_once "content/event-2.php"; ?>
+	<?php require_once "content/event-3.php"; ?>
 	<?php require_once "content/events.php"; ?>
 	<!--*************our pertners****************-->
 	<?php require_once "content/our-partners.php"; ?>
@@ -55,10 +59,10 @@
 	<script src="https://use.fontawesome.com/aa9b1b4b5c.js"></script>
 
 	<!-- CUSTOM JS SHEETS-->
-		 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3Mh7iMONAFg64CcmvokDMe3NOYzDJmPc&callback=initMap">
-    </script>
-	<script src="js/script.js"></script>
+	<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3Mh7iMONAFg64CcmvokDMe3NOYzDJmPc&callback=initMap">
+</script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
