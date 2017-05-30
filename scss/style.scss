@@ -101,7 +101,11 @@ header .flex-nav{
 /*SEARCH BAR STYLING*/
 .search-bar-form{
 	width: 100%;
-	border-bottom: 1px solid $lightenPrimaryColor;
+  border-bottom: 1px solid $lightenPrimaryColor;
+}
+
+.header-search-bar{
+	display:none;
 }
 /*SEARCH FORM CONAINER*/
 .search-bar-form > div{
@@ -285,6 +289,8 @@ footer .social-media-icons{
 /**************************************/
 .section{
 	display: none;
+	margin-top:16px;
+	margin-bottom:16pxa;
 }
 /**************************************/
 /*****END DEFAULT LAYOUT LAYOUT******/
@@ -872,6 +878,9 @@ width:50%;
 }
 /*************our partners ends**************/
 
+.header-search-bar{
+display:none;
+}
 
 }
 
@@ -1064,4 +1073,15 @@ width:50%;
 }
 /*************our partners ends**************/
 
+.header-search-bar{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.header-search-bar-mobile{
+	display:none;
+}
+.search-bar-form{
+	border:none;
+}
 }

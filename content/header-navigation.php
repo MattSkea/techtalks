@@ -15,19 +15,33 @@
 				<li><a class="link" id="header-contact-link" data-go-to="section-contact-us">Contact us</a></li>		
 				<li><a class="link" id="header-register-link" data-go-to="section-register">Register</a></li>		
 				<li><a class="link" id="header-login-link"  data-go-to="section-login">Login</a></li>		
+				<li class="header-search-bar">
+				<!-- SEARCH BAR-->
+					<form id="search-bar-header" class="search-bar-form">
+						<div>
+							<div class="search-input-container">
+								<input type="text" placeholder="Search here...">
+							</div>
+							<div class="search-icon-button hover">
+								<div class="search-icon fa fa-search"></div>
+							</div>
+						</div>
+					</form>
+				</li>
 			</ul>
 		</nav>		
 
 		<!-- SEARCH BAR-->
-		<form id="search-bar-header" class="search-bar-form">
-			<div>
-				<div class="search-input-container">
-					<input type="text" placeholder="Search here...">
+				<div class="header-search-bar-mobile">
+					<form id="search-bar-header" class="search-bar-form">
+						<div>
+							<div class="search-input-container">
+								<input type="text" placeholder="Search here...">
+							</div>
+							<div class="search-icon-button hover">
+								<div class="search-icon fa fa-search"></div>
+							</div>
+						</div>
+					</form>
 				</div>
-				<div class="search-icon-button hover">
-					<div class="search-icon fa fa-search"></div>
-				</div>
-			</div>
-		</form>
-
 	</header>

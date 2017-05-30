@@ -1,11 +1,11 @@
 <div id="section-home" class="section" style="display: block">
 
 	<!-- HOME PAGE LANDING IMAGE -->
-	<div id="article-home-image" class="section-image">
-		<img class="small-pc" src="img/site-layout/home-background-1600X200.jpg" alt="Home background image -Standing infront of a microphone staring out at crowd">
-		<img class="tablet" src="img/site-layout/home-background-800X100.jpg" alt="Home background image -Standing infront of a microphone staring out at crowd">
-		<img class="mobile" src="img/site-layout/home-background-500X80.jpg" alt="Home background image -Standing infront of a microphone staring out at crowd">
-	</div>
+<!-- <div id="article-home-image" class="section-image">
+<img class="small-pc" src="img/site-layout/home-background-1600X200.jpg" alt="Home background image -Standing infront of a microphone staring out at crowd">
+<img class="tablet" src="img/site-layout/home-background-800X100.jpg" alt="Home background image -Standing infront of a microphone staring out at crowd">
+<img class="mobile" src="img/site-layout/home-background-500X80.jpg" alt="Home background image -Standing infront of a microphone staring out at crowd">
+</div> -->
 
 	
 
