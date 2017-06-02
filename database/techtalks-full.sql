@@ -1,4 +1,4 @@
-/************************************/
+﻿/************************************/
 /*************DROP USERS*************/
 DROP USER 'techtdbadmin'@'localhost';
 DROP USER 'techtwebadmin'@'localhost';

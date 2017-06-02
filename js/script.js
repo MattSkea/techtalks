@@ -141,14 +141,21 @@ function toggleContainerFlex(containerName){
 function toggleHeaderSeachContainer(containerName){
 	/*get the ul state*/
 	var container = containerName;
-	var state = $(container).css("display");
-
-	/*compare the ul state*/
-	if(state === "none"){
-		$(container).slideDown();
-	} else if(state === "block"){
-		$(container).slideUp();
+	var toggleWidth = $("#search-input-text-pc").width() == 300 ? "0px" : "300px";
+	var toggleWidthM = $("#search-input-text-mobile").width() == 300 ? "0px" : "300px";
+	if($(".search-input-container").css("display")=="none"){
+		$("#search-input-text-pc").animate({ width: toggleWidth });
+		$("#search-input-text-mobile").animate({ width: toggleWidthM });
+		$(".search-input-container").css("display","block");
 	}
+	else{
+		$("#search-input-text-mobile").animate({ width: toggleWidthM });
+		$("#search-input-text-pc").animate({ width: toggleWidth});
+		$(".search-input-container").css("display","none");
+	}
+
+
+ 
 }
 
 /*SHOW SELECTED WINDOW*/

@@ -86,8 +86,21 @@ header .flex-nav {
 /*SEARCH BAR STYLING*/
 .search-bar-form {
   width: 100%;
-  border-bottom: 1px solid #c7c7c7; }
+  border-bottom: 1px solid #c7c7c7;
 
+   }
+.search-bar-form input{
+  width: 0px;
+  transition: display 2s;
+    height: 30px;
+  padding: 2px 0 0 4px; }
+}
+.search-input-text-pc{
+  transition: display 2s;
+}
+.search-bar-form-toggled{
+  width: 100%;
+}
 .header-search-bar {
   display: none; }
 
@@ -104,11 +117,7 @@ header .flex-nav {
   /* TOGGLE CONTAINER DISPLAY IN JS FOR ACTIVE SEARCHS*/
   display: none; }
 
-.search-input-container input {
-  width: 96%;
-  /*the inputs width is dependant on the parent container*/
-  height: 30px;
-  padding: 2px 0 0 4px; }
+
 
 /*SEARCH ICON*/
 /*SETUP ICON CONTAINER*/
