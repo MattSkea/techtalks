@@ -19,8 +19,8 @@
 				<!-- SEARCH BAR-->
 					<form id="search-bar-header" class="search-bar-form">
 						<div>
-							<div class="search-input-container">
-								<input type="text" placeholder="Search here...">
+							<div class="search-input-container" data-search-state="hidden">
+								<input id="search-input-text-pc" type="text" placeholder="Search here...">
 							</div>
 							<div class="search-icon-button hover">
 								<div class="search-icon fa fa-search"></div>
@@ -36,7 +36,7 @@
 					<form id="search-bar-header" class="search-bar-form">
 						<div>
 							<div class="search-input-container">
-								<input type="text" placeholder="Search here...">
+								<input id="search-input-text-mobile" type="text" placeholder="Search here...">
 							</div>
 							<div class="search-icon-button hover">
 								<div class="search-icon fa fa-search"></div>
