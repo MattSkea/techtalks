@@ -22,6 +22,7 @@ $(document).on("click", ".search-icon-button", function(){
 $(document).on("click", ".link", function () {
 	/*retrieve the attribute on the link that was clicked*/
 	var sIdWindowToShow = $(this).attr("data-go-to");
+	var sIdPopUpToShow = $(this).attr("data-popup");
 
 	/*retrieve the parent element and see if the parent is article-links(inside main menu)*/
 	var sElementParent = $(this).parent().attr("id");
@@ -29,12 +30,17 @@ $(document).on("click", ".link", function () {
 	/*get name of header*/
 	var containerToHide = ".flex-nav ul";
 
+	if(sIdPopUpToShow!=null){
+		fnShowPopUp(sIdPopUpToShow);	
+	}
+
+	if(sIdWindowToShow!=null){
 	/*hide the current window*/
 	fnHideCurrentWindow();
 
 	/*show the selected window*/
 	fnShowSelectedWindow(sIdWindowToShow);
-	
+	}
 	/*hide the navigation*/
 	toggleContainer(containerToHide);
 });
@@ -118,6 +124,18 @@ function toggleContainer(containerName){
 		$(container).slideUp();
 	}
 }
+
+/* show pop up window*/
+function fnShowPopUp(windowName){
+	//console.log($("#"+windowName).html());
+	var windowHtml=$("#"+windowName)[0].outerHTML
+	console.log(windowHtml);
+	//$(("#"+windowName).html()).appendTo("#appender");
+	$("#appender").html(windowHtml);
+	$("#"+windowName).addClass("popup");
+	$("#appender").css("display","flex");
+	showOverlay();
+}
 /****************************************************/
 /*TOGGLE CONTAINER FLEX*/
 function toggleContainerFlex(containerName){
@@ -185,6 +203,7 @@ function showOverlay(){
 function hideOverlay(){
 	/*hide the overlay*/
 	$("#section-overlay").hide();
+	$("#appender").hide();
 	/*hide 'y'-scroll on the body*/
 	$("body").css({"overflow-y": "scroll"});
 }

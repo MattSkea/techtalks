@@ -13,7 +13,7 @@
 			<div class="our-partners-contact-us-container">
 				<h3 class="our-partners-text-headings">Want to become a partner ?</h3>
 				<p>Let us know and We will contact you to disccus more.
-					<div class="button-green button link" data-go-to="section-contact-us">Contact us
+					<div class="button-green button link" data-popup="section-contact-us">Contact us
 			  	</div>
 				</p>
 			</div>

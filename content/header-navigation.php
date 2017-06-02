@@ -12,9 +12,9 @@
 				<li class="pc-logo"><a href="index.php"><img src="img/site-layout/logo.svg"></a></li>
 				<li><a class="link" data-go-to="section-events">Events</a></li>
 				<li><a class="link" data-go-to="section-our-partners">Our partners</a></li>
-				<li><a class="link" id="header-contact-link" data-go-to="section-contact-us">Contact us</a></li>		
-				<li><a class="link" id="header-register-link" data-go-to="section-register">Register</a></li>		
-				<li><a class="link" id="header-login-link"  data-go-to="section-login">Login</a></li>		
+				<li><a class="link" id="header-contact-link" data-popup="section-contact-us">Contact us</a></li>		
+				<li><a class="link" id="header-register-link" data-popup="section-register">Register</a></li>		
+				<li><a class="link" id="header-login-link"  data-popup="section-login">Login</a></li>		
 				<li class="header-search-bar">
 				<!-- SEARCH BAR-->
 					<form id="search-bar-header" class="search-bar-form">

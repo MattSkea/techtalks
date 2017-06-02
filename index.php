@@ -21,7 +21,9 @@ include 'inc/db.php';
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+		<div id="appender">
+		
+	</div>
 
 	<!-- BODY -->
 
