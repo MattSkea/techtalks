@@ -148,6 +148,7 @@ function toggleContainerFlex(containerName){
 	if(state === "none"){
 		$(container).slideDown(400,"swing", function(){
 			$(container).css('display', 'flex');
+				window.dispatchEvent(new Event('resize'));
 		});
 		
 	} else if(state === "flex"){
