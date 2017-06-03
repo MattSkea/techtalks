@@ -35,11 +35,11 @@ $(document).on("click", ".link", function () {
 	}
 
 	if(sIdWindowToShow!=null){
-	/*hide the current window*/
-	fnHideCurrentWindow();
+		/*hide the current window*/
+		fnHideCurrentWindow();
 
-	/*show the selected window*/
-	fnShowSelectedWindow(sIdWindowToShow);
+		/*show the selected window*/
+		fnShowSelectedWindow(sIdWindowToShow);
 	}
 	/*hide the navigation*/
 	toggleContainer(containerToHide);
@@ -110,6 +110,11 @@ $(document).on("click", "#btn-login-user", function () {
 	/*fire off the login function*/
 	fnLogin();
 });
+/*INITIALIZE LOGOUT*/
+$(document).on("click", "#header-logout-link", function () {
+	fnLogout();
+});
+
 
 /****************************************************/
 /*******************FUNCTIONS************************/
@@ -154,7 +159,7 @@ function toggleContainerFlex(containerName){
 	if(state === "none"){
 		$(container).slideDown(400,"swing", function(){
 			$(container).css('display', 'flex');
-				window.dispatchEvent(new Event('resize'));
+			window.dispatchEvent(new Event('resize'));
 		});
 		
 	} else if(state === "flex"){
@@ -180,7 +185,7 @@ function toggleHeaderSeachContainer(containerName){
 	}
 
 
- 
+	
 }
 
 /*SHOW SELECTED WINDOW*/
@@ -358,3 +363,20 @@ function fnHideLoginInputErrors() {
 
 	// fnHideInputErrors(eBorderToHide);
 }
+
+/****************************************************/
+/*LOGOUT FUNCTION*/
+function fnLogout() {
+	/*setup ajax url*/
+	var sUrl = "./services/api-logout.php?";
+	/*setup ajax post to logout the user*/
+	$.get(sUrl, function (sJData) {
+	}).done(function () {
+		/*reload the page after logout to refresh the session state*/
+		setTimeout(function () {
+			// fnClearLocalStorage();
+			location.reload();
+		}, 600);
+	});
+}
+/****************************************************/
