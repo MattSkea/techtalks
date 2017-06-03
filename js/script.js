@@ -285,6 +285,52 @@ function fnCreateUser() {
 	});
 }
 
+/*form validation*/
+function fnFormValidation(){
+
+	var sUserName =$("input[name='userName']").val();
+	var sUserPassword =$("input[name='userPassword']").val();
+	var sUserRePassword =$("input[name='userPasswordReType']").val();
+	var sUserEmail =$("input[name='userEmail']").val();
+	var iPasswordSize=6;
+	var iValidationHelper=0; /// if does not = 0 then there is something wrong
+	var sValidationState=$("button[data-go-to='CreateUser']").attr("data-ValidationState");
+
+	if(sUserName==""||sUserPassword==""||sUserRePassword==""||sUserEmail=="")
+	{
+		$(".validationInfo").text("Please fill all fields");
+		iValidationHelper++;	
+	}
+	if(iValidationHelper==0)
+	{
+		if(sUserPassword.length<=iPasswordSize){
+				$(".validationInfo").text("Improve your Password");
+				$(".validationInfo").css("color","red");
+			iValidationHelper++;
+		 }
+		if(sUserEmail.indexOf("@") == -1)
+		{
+				$(".validationInfo").text("Incorrect Email");
+				$(".validationInfo").css("color","red");
+			iValidationHelper++;
+		}
+	}
+	if(iValidationHelper==0){
+		if(sUserPassword!=sUserRePassword)
+		{
+		$(".validationInfo").text("Password does not match");
+		}
+		if(sUserPassword==sUserRePassword)
+		{
+
+		fnCreateUser(); // if all good create user
+		}
+	
+	}
+
+
+	
+}
 /****************************************************/
 /****************LOGIN USER**************************/
 /**** - using ajax                               ****/ 
