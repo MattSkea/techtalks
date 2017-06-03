@@ -19,4 +19,4 @@ $stmt->bindValue(":mobile", $mobile);
 
 $stmt->execute();
 
-echo "{type:success}";
+echo '{"status":"success"}';

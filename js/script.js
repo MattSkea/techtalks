@@ -102,7 +102,13 @@ $(document).on("click", "#section-overlay" , function(e){
 
 /******************CREATE USER **********************/
 $(document).on("click", ".register-button", function () {
-    fnCreateUser();
+	fnCreateUser();
+});
+
+/*INITIALIZE LOGIN*/
+$(document).on("click", "#btn-login-user", function () {
+	/*fire off the login function*/
+	fnLogin();
 });
 
 /****************************************************/
@@ -264,10 +270,91 @@ function fnCreateUser() {
 		success: function (jData) {
 			/*update the users table*/
 			// fnReadUserRegister();
+			console.log(jData);
+
 			swal("SIGNUP", "YOU HAVE SUCCESSFULLY REGISTERED", "success");
 		},
 		error: function (jData) {
 			console.log("error - trying to create a user");
 		}
 	});
+}
+
+/****************************************************/
+/****************LOGIN USER**************************/
+/**** - using ajax                               ****/ 
+function fnLogin() {
+	console.log("CLICK");
+	/*setup ajax url*/
+	var sUrl = "./services/api-login.php?";
+
+	var sUrlData = $("#form-login").serialize();
+
+	sUrl += sUrlData;
+
+	console.log("Url: " + sUrl);
+
+	/* setup ajax post to login the user*/
+	$.get(sUrl, function (sJData) {
+		console.log("sJData: " + sJData);
+		var jData = JSON.parse(sJData);
+		console.log(jData);
+		/*check the response status*/
+		if (jData.status === "ok") {
+			console.log("Valid user, login OK!)");
+			fnLoginAlert();
+		}
+		else if (jData.status === "error") {
+			console.log("invalid user, login FAIL!");
+		}
+	});
+}
+/****************************************************/
+/*LOGIN SWEETALERT*/
+function fnLoginAlert() {
+	swal({
+		"title": "LOGIN SUCCESS",
+		"text": "Have a nice day.",
+		"type": "success",
+		"confirmButtonText": "Continue",
+		"confirmButtonColor": "#42A5F5"
+	},
+	function () {
+		/*reload the page after login*/
+		location.reload();
+
+		/*on success go to properties page*/
+		/*handled by php on properties.php*/
+	});
+}
+/*WRITE THE USER DATA TO LOCAL STORAGE*/
+function fnCreateUserLocalStorage(sjData) {
+	/*write the data to local storage*/
+	localStorage.user = sjData;
+}
+/*SHOW LOGIN ERROR MESSAGE FUNCTION*/
+function fnShowLoginErrorMessage() {
+	var sLoginErrorMessage = "Error loggin in, please try again!";
+
+	// fnAppendErrorMessage(sLoginErrorMessage);
+}
+/*HIDE LOGIN ERROR MESSAGE FUNCTION*/
+function fnHideLoginErrorMessage() {
+	/*GET THE NOTIFICATION TO HIDE*/
+	var tLoginNotification = $("#form-login .notification-error");
+
+	// fnHideErrorMessage(tLoginNotification);
+}
+/****************************************************/
+function fnShowLoginInputErrors() {
+	/*GET THE BORDER TO SHOW*/
+	var eBorderToShow = $("#form-login input");
+
+	// fnShowInputErrors(eBorderToShow);
+}
+function fnHideLoginInputErrors() {
+	/*GET THE BORDER TO SHOW*/
+	var eBorderToHide = $("#form-login input");
+
+	// fnHideInputErrors(eBorderToHide);
 }
