@@ -139,8 +139,8 @@ function toggleContainer(containerName){
 /* show pop up window*/
 function fnShowPopUp(windowName){
 	//console.log($("#"+windowName).html());
-	var windowHtml=$("#"+windowName)[0].outerHTML
-	console.log(windowHtml);
+	var windowHtml=$("#"+windowName)[0].outerHTML;
+	// console.log(windowHtml);
 	//$(("#"+windowName).html()).appendTo("#appender");
 	$("#appender").html(windowHtml);
 	$("#"+windowName).addClass("popup");
@@ -307,7 +307,7 @@ function fnLogin() {
 		/*check the response status*/
 		if (jData.status === "ok") {
 			console.log("Valid user, login OK!)");
-			fnLoginAlert();
+			fnLoginAlert(jData);
 		}
 		else if (jData.status === "error") {
 			console.log("invalid user, login FAIL!");
@@ -316,7 +316,7 @@ function fnLogin() {
 }
 /****************************************************/
 /*LOGIN SWEETALERT*/
-function fnLoginAlert() {
+function fnLoginAlert(jData) {
 	swal({
 		"title": "LOGIN SUCCESS",
 		"text": "Have a nice day.",
@@ -375,7 +375,7 @@ function fnLogout() {
 		/*reload the page after logout to refresh the session state*/
 		setTimeout(function () {
 			// fnClearLocalStorage();
-			location.reload();
+			window.location.href = "index.php";
 		}, 600);
 	});
 }

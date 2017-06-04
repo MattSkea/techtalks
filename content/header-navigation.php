@@ -10,18 +10,29 @@
 
 			<ul>
 				<li class="pc-logo"><a href="index.php"><img src="img/site-layout/logo.svg"></a></li>
+				
+				<?php
+				if(isset($_SESSION['email'])){
+					if( $_SESSION['ar'] > 4){
+						?>
+						<li><a href="./admin-index.php">Admin home</a></li>
+						<?php
+					}
+				}
+				?>
 				<li><a class="link" data-go-to="section-events">Events</a></li>
 				<li><a class="link" data-go-to="section-our-partners">Our partners</a></li>
-				<li><a class="link" id="header-contact-link" data-popup="section-contact-us">Contact us</a></li>		
-				<li><a class="link" id="header-register-link" data-popup="section-register">Register</a></li>	
+				<li><a class="link" id="header-contact-link" data-popup="section-contact-us">Contact us</a></li>
+
 				<?php
 				if (!isset($_SESSION['email'])) {
-					?>	
+					?>		
+					<li><a class="link" id="header-register-link" data-popup="section-register">Register</a></li>	
 					<li><a id="header-login-link" class="link" data-popup="section-login">Login</a></li>
 					<?php
 				} else{
 					?>	
-					<li><a id="header-logout-link"class="link">Logout</a></li>	
+					<li><a id="header-logout-link" class="link">Logout</a></li>	
 					<?php
 				}
 				?>	

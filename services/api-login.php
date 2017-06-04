@@ -4,7 +4,7 @@ include '../inc/db.php';
 //session_start();
 
 $email = $_GET['email'];
-$pass = $_GET['pass'];
+$pass =  $_GET['pass'];
 
 // var_dump($_GET);
 
@@ -21,14 +21,13 @@ if ($user = $stmt->fetchObject()) {
     $_SESSION['fname'] = $user->fname;
     $_SESSION['email'] = $user->email;
     if ($user->arid > 4) {
-        // header("Location: ../admin/");
-        // echo "ADMIN";
+        /* ADMIN */
+        echo '{"status":"ok", "location":"./admin-index.php"}';
     } else if($user->arid <= 5 & $user->arid >= 1){
-        // header("Location: ../");
-        // echo "BASRIC USER";
+        /* BASRIC USER */
+        echo '{"status":"ok", "location":"./index.php"}';
     }
 
-    echo '{"status":"ok"}';
 } else {
     echo '{"status":"error"}';
     

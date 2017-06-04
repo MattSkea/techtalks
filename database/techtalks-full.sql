@@ -35,7 +35,7 @@ FLUSH PRIVILEGES;
 CREATE TABLE users(
  id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT, 
  email VARCHAR(100)UNIQUE NOT NULL,
- pass VARCHAR (300) NOT NULL,
+ pass varchar(60) NOT NULL,
  fname VARCHAR(30) NOT NULL,
  lname VARCHAR(30) NOT NULL,	
  mobile VARCHAR(12),
@@ -390,9 +390,9 @@ CALL CreateAccessRight('10', 'super admin');
 SELECT * FROM accessrights;
 
 /********CREATE USERS***************/
-CALL CreateSystemUser('bobby@gmail.com', '19b58543c85b97c5498edfd89c11c3aa8cb5fe51', 'bobby', 'lite', '5948-953');
-CALL CreateSystemUser('garry@gmail.com', '19b58543c85b97c5498edfd89c11c3aa8cb5fe51', 'garry', 'brown', '5455-4489');
-CALL CreateSystemUser('gill@live.com', '19b58543c85b97c5498edfd89c11c3aa8cb5fe51', 'gill', 'krones', '5455-6489');
+CALL CreateSystemUser('admin@gmail.com', 'a1', 'bobby', 'lite', '5948-953');
+CALL CreateSystemUser('garry@gmail.com', 'a1', 'garry', 'brown', '5455-4489');
+CALL CreateSystemUser('gill@live.com', 'a1', 'gill', 'krones', '5455-6489');
 
 SELECT * FROM users;
 
