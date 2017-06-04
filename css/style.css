@@ -575,6 +575,10 @@ footer .social-media-icons {
   display: none;
   justify-content: center; }
 
+.information {
+  font-size: 10px;
+  color: red; }
+
 /*************our partners ends**************/
 /*MEDIA QUERY - TABLET*/
 @media screen and (min-width: 700px) {

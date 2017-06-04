@@ -102,7 +102,7 @@ $(document).on("click", "#section-overlay" , function(e){
 
 /******************CREATE USER **********************/
 $(document).on("click", ".register-button", function () {
-	fnCreateUser();
+	fnFormValidation();
 });
 
 /*INITIALIZE LOGIN*/
@@ -278,6 +278,7 @@ function fnCreateUser() {
 			console.log(jData);
 
 			swal("SIGNUP", "YOU HAVE SUCCESSFULLY REGISTERED", "success");
+			setTimeout(function() {fnShowPopUp("section-login");	}, 10);
 		},
 		error: function (jData) {
 			console.log("error - trying to create a user");
@@ -287,31 +288,100 @@ function fnCreateUser() {
 
 /*form validation*/
 function fnFormValidation(){
+	var borderRed={"border-color": "red", 
+							   "border-width":"1px", 
+             	   "border-style":"solid"};
+  var borderNormal=
+  							{"border":""};
 
-	var sUserName =$("input[name='userName']").val();
-	var sUserPassword =$("input[name='userPassword']").val();
-	var sUserRePassword =$("input[name='userPasswordReType']").val();
-	var sUserEmail =$("input[name='userEmail']").val();
+	var sUserEmail =$("#txt-register-email").val();
+	var sUserName =$("#txt-register-fname").val();
+	var sUserNameLast =$("#txt-register-lname").val();
+	var sUserMobile =$("#txt-register-mobile").val();
+	var sUserPassword =$("#txt-register-password").val();
+	var sUserRePassword =$("#txt-register-password-re").val();
+	$("#txt-register-email").css(borderNormal);
+	$("#txt-register-fname").css(borderNormal);
+	$("#txt-register-lname").css(borderNormal);;
+	$("#txt-register-mobile").css(borderNormal);
+	$("#txt-register-password").css(borderNormal);
+	$("#txt-register-password-re").css(borderNormal);
 	var iPasswordSize=6;
 	var iValidationHelper=0; /// if does not = 0 then there is something wrong
-	var sValidationState=$("button[data-go-to='CreateUser']").attr("data-ValidationState");
-
-	if(sUserName==""||sUserPassword==""||sUserRePassword==""||sUserEmail=="")
-	{
-		$(".validationInfo").text("Please fill all fields");
+	
+	if(sUserEmail==""&&iValidationHelper==0){
+			$(".information").remove();
+			$("<div class='information'>Please fill all fields</div>").insertAfter("#txt-register-email");
+			$("#txt-register-email").css(borderRed);
+		
 		iValidationHelper++;	
 	}
+		else if(sUserName==""&&iValidationHelper==0){
+			$(".information").remove();
+			$("<div class='information'>Please fill all fields</div>").insertAfter("#txt-register-fname");
+				$("#txt-register-fname").css(borderRed);
+		
+		iValidationHelper++;	
+	}
+		else if(sUserNameLast==""&&iValidationHelper==0){
+		
+			$(".information").remove();
+			$("<div class='information'>Please fill all fields</div>").insertAfter("#txt-register-lname");
+				$("#txt-register-lname").css(borderRed);
+		
+		iValidationHelper++;	
+	}
+		else if(sUserMobile==""&&iValidationHelper==0){
+		
+			$(".information").remove();
+			$("<div class='information'>Please fill all fields</div>").insertAfter("#txt-register-mobile");
+				$("#txt-register-mobile").css(borderRed);
+		
+		iValidationHelper++;	
+	}
+	else if(!$.isNumeric(sUserMobile)&&iValidationHelper==0){
+		$(".information").remove();
+			$("<div class='information'>Should be a number without +</div>").insertAfter("#txt-register-mobile");
+				$("#txt-register-mobile").css(borderRed);
+				iValidationHelper++;	
+
+
+	}
+		else if(sUserPassword==""&&iValidationHelper==0){
+		
+			$(".information").remove();
+			$("<div class='information'>Please fill all fields</div>").insertAfter("#txt-register-password");
+				$("#txt-register-password").css(borderRed);
+		
+		iValidationHelper++;	
+	}
+		else	if(sUserRePassword==""&&iValidationHelper==0){
+		
+			$(".information").remove();
+			$("<div class='information'>Please fill all fields</div>").insertAfter("#txt-register-password-re");
+				$("#txt-register-password-re").css(borderRed);
+		
+		iValidationHelper++;	
+	}
+else{
+	$(".information").remove();
+
+}
+
 	if(iValidationHelper==0)
 	{
+		$(".information").remove();
 		if(sUserPassword.length<=iPasswordSize){
-				$(".validationInfo").text("Improve your Password");
-				$(".validationInfo").css("color","red");
+			$(".information").remove();
+			$("<div class='information'>Improve your Password</div>").insertAfter("#txt-register-password");
+			$("#txt-register-password").css(borderRed);
 			iValidationHelper++;
 		 }
 		if(sUserEmail.indexOf("@") == -1)
 		{
-				$(".validationInfo").text("Incorrect Email");
-				$(".validationInfo").css("color","red");
+			$(".information").remove();
+			$("<div class='information'>Email is not valid</div>").insertAfter("#txt-register-email");
+					$("#txt-register-email").css(borderRed);
 			iValidationHelper++;
 		}
 	}
@@ -319,6 +389,10 @@ function fnFormValidation(){
 		if(sUserPassword!=sUserRePassword)
 		{
 		$(".validationInfo").text("Password does not match");
+		$(".information").remove();
+			$("<div class='information'>Password does not match</div>").insertAfter("#txt-register-password");
+			$("#txt-register-password").css(borderRed);
+			$("#txt-register-password-re").css(borderRed);
 		}
 		if(sUserPassword==sUserRePassword)
 		{
