@@ -40,9 +40,13 @@ $(document).on("click", ".link", function () {
 
 		/*show the selected window*/
 		fnShowSelectedWindow(sIdWindowToShow);
+		
+
+		/*hide the navigation*/
+		toggleContainer(containerToHide);
 	}
 	/*hide the navigation*/
-	toggleContainer(containerToHide);
+	// toggleContainer(containerToHide);
 });
 
 
