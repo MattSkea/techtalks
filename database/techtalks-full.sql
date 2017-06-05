@@ -568,11 +568,11 @@ INSERT INTO epartners (eid, pid) VALUES ('20001', '10003');
 INSERT INTO epartners (eid, pid) VALUES ('20002', '10004'); 
 INSERT INTO epartners (eid, pid) VALUES ('20003', '10004');
 
-INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'falcon.svg', 'falcon logo'); 
-INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'pinmeto.png', 'pinmeto logo');
-INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'microsoft.svg', 'microsoft logo');
-INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'iis.svg', 'iis logo'); 
-INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'king.svg', 'king logo');
+INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'falcon-logo.svg', 'falcon logo'); 
+INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'pinmeto-logo.png', 'pinmeto logo');
+INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'microsoft-logo.svg.png', 'microsoft logo');
+INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'iis-logo.svg', 'iis logo'); 
+INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'king-logo.svg', 'king logo');
 
 INSERT INTO partnerilabels (pid, ilid) VALUES ('10000', '800000');
 INSERT INTO partnerilabels (pid, ilid) VALUES ('10001', '800001');

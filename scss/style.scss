@@ -829,6 +829,11 @@ footer .social-media-icons{
 	background-color: $lightenSecondaryColor;
 }
 
+.dynamic-rows img{
+	width: 100%;
+	height: auto;
+}
+
 /*MEDIA QUERY - TABLET*/
 @media screen and(min-width: 700px){
 	/**************************************/

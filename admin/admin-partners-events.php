@@ -54,7 +54,15 @@
         </div>
         <!-- THIRD EVENTS PARTNERS ROW -->
         <div id="dynamic-event-partner-rows" class="article-event-partner-rows table-rows" >
-
+            <div class="aside-primary-partners-content user-row dynamic-rows">\
+                <div class="lbl-partner-id">{{id}}</div>\
+                <div class="lbl-primary-partners-image"><img src="{{image}}"></div>\
+                <div class="lbl-primary-partners-name">{{name}}</div>\
+                <div class="lbl-event-partner-url"><a href="{{url1}}" target="_blank" >{{url2}}</a></div>\
+                <div class="btn-primary-partner-view lbl-primary-partner-edit primary-icons fa fa-eye fa-fw" data-go-to="section-partner-view"></div>\
+                <div class="btn-primary-partner-edit lbl-primary-partner-edit primary-icons fa fa-edit fa-fw" data-popup="section-partner-edit"></div>\
+                <div class="btn-primary-partner-delete lbl-primary-partner-delete primary-icons fa fa-trash fa-fw"></div>\
+            </div>'
 
         </div>
     </div>

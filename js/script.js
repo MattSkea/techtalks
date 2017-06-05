@@ -758,7 +758,7 @@ function fnGetPrimaryPartners() {
 		var sPartnersBlueprint = '\
 		<div class="aside-primary-partners-content user-row dynamic-rows">\
 		<div class="lbl-partner-id">{{id}}</div>\
-		<div class="lbl-primary-partners-image">{{image}}</div>\
+		<div class="lbl-primary-partners-image"><img src="./img/content/{{image}}""></div>\
 		<div class="lbl-primary-partners-name">{{name}}</div>\
 		<div class="lbl-event-partner-url"><a href="{{url1}}" target="_blank" >{{url2}}</a></div>\
 		<div class="btn-primary-partner-view lbl-primary-partner-edit primary-icons fa fa-eye fa-fw" data-go-to="section-partner-view"></div>\
@@ -803,7 +803,7 @@ function fnGetEventsPartners() {
 		var sPartnersBlueprint = '\
 		<div class="aside-event-partner-content user-row dynamic-rows">\
 		<div class="lbl-user-id">{{id}}</div>\
-		<div class="lbl-event-partner-image">{{image}}</div>\
+		<div class="lbl-event-partner-image"><img src="./img/content/{{image}}"></div>\
 		<div class="lbl-event-partner-name">{{name}}</div>\
 		<div class="lbl-event-partner-event-name"> {{ename}}</div>\
 		<div class="lbl-event-partner-url"><a href="{{url1}}" target="_blank" >{{url2}}</a></div>\
