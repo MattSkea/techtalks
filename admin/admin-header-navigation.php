@@ -11,8 +11,10 @@
 
 		<ul>
 			<li class="pc-logo"><a href="./index.php"><img src="./img/site-layout/logo.svg"></a></li>
-			<li><a class="link" data-go-to="section-events">Events</a></li>
-			<li><a class="link" data-go-to="section-our-partners">Partners</a></li>
+			<li><a href="./admin-index.php">Admins home</a></li>
+			<li><a class="link" data-go-to="section-admin-events">Events</a></li>
+			<li><a data-go-to="section-partners">Partners</a></li>
+			<li><a class="link" data-go-to="section-users">Users</a></li>
 
 			<li><a id="header-logout-link" class="link">Logout</a></li>
 			<li class="header-search-bar">

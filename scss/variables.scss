@@ -13,10 +13,12 @@ $darkenPrimaryColor: darken($primary-color, 20%);
 $lightenPrimaryColor: lighten($primary-color, 40%);
 
 $darkenSecondaryColor: darken($secondary-color, 70%);
-$lightenSecondaryColor: darken($secondary-color, 50%);
+$lightenSecondaryColor: lighten($secondary-color, 20%);
 
 $darkenAcctColor1: darken($accent-color-1, 10%);
 $lightenAcctColor1: lighten($accent-color-1, 10%);
+$lighten5AcctColor1: lighten($accent-color-1, 5%);
+$lighter50AcctColor1: lighten($accent-color-1, 30%);
 
 $darkenAcctColor2: darken($accent-color-2, 70%);
 $lightenAcctColor2: lighten($accent-color-2, 50%);

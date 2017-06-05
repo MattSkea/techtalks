@@ -8,7 +8,8 @@ $fname = $_POST["fname"];
 $lname = $_POST["lname"];
 $mobile = $_POST['mobile'];
 
-print_r($_POST);
+/*print_r($_POST);*/
+
 $stmt = $db->prepare("CALL CreateSystemUser(:email, :pass, :fname, :lname, :mobile)");
 
 $stmt->bindValue(":email", $email);

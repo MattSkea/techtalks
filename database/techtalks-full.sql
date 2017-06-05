@@ -1,5 +1,4 @@
-﻿/************************************/
-/*************DROP USERS*************/
+﻿/*************DROP USERS*************/
 DROP USER 'techtdbadmin'@'localhost';
 DROP USER 'techtwebadmin'@'localhost';
 DROP USER 'techtwebuser'@'localhost';
@@ -37,25 +36,25 @@ CREATE TABLE users(
  email VARCHAR(100)UNIQUE NOT NULL,
  pass varchar(60) NOT NULL,
  fname VARCHAR(30) NOT NULL,
- lname VARCHAR(30) NOT NULL,	
+ lname VARCHAR(30) NOT NULL,  
  mobile VARCHAR(12),
  djoin DATETIME  NOT NULL DEFAULT NOW(),
  arid INT(11) UNSIGNED NOT NULL DEFAULT '1',
  activeacct TINYINT(1) UNSIGNED DEFAULT '0',
-  PRIMARY KEY (id)
+ PRIMARY KEY (id)
 );
 
 CREATE TABLE accessrights(
  id INT(2) UNSIGNED NOT NULL, 
  ardesc VARCHAR(15),
-  PRIMARY KEY (id)
+ PRIMARY KEY (id)
 );
 
 CREATE TABLE techevents(
-id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-tename VARCHAR(80) NOT NULL,
-tedescription TEXT,
-PRIMARY KEY (id)
+  id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  tename VARCHAR(80) NOT NULL,
+  tedescription TEXT,
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE lecturer(
@@ -116,7 +115,7 @@ CREATE TABLE ppartners(
   pid INT(11) UNSIGNED NOT NULL
 );
 
-CREATE TABLE imagelabels(	
+CREATE TABLE imagelabels( 
  id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
  ilabel VARCHAR(80) NOT NULL,
  ialt VARCHAR(200) NOT NULL,
@@ -224,6 +223,13 @@ ON UPDATE CASCADE;
 PREPARE users_select FROM "SELECT * FROM users WHERE arid = ?";
 SET @select_admins = "10";
 SET @select_users = "1";
+
+PREPARE get_all_events FROM "SELECT teslocation.tesid, teslocation.lid, techevents.tename, techevents.tedescription,teslocation.eventst, teslocation.eventet, teslocation.totalattending, teslocation.attendlimit, 
+imagelabels.ilabel, imagelabels.ialt FROM teslocation 
+INNER JOIN techevents ON teslocation.tesid = techevents.id
+INNER JOIN locations ON teslocation.lid = locations.id
+INNER JOIN teventilabels ON techevents.id = teventilabels.tesid
+INNER JOIN imagelabels ON imagelabels.id = teventilabels.ilid";
 
 
 /************************************/
@@ -341,6 +347,7 @@ VALUES (tesid, lid, eventST, eventET, attendLim);
 
 END 
 // DELIMITER ;
+
 /************************************/
 /*****PREPARED STORED PROCEDURE******/
 
@@ -360,6 +367,25 @@ DEALLOCATE PREPARE user_select_by_id;
 END 
 // DELIMITER ;
 
+/********GET EVENTS********/
+DELIMITER //
+DROP PROCEDURE IF EXISTS getAllTechEvents//
+CREATE PROCEDURE getAllTechEvents(OUT eid INT, OUT lid INT, OUT ename VARCHAR(80), OUT edesc TEXT, OUT est DATETIME, OUT eet DATETIME, OUT ta INT(11), OUT al INT(11), OUT ilabel VARCHAR(80), OUT ialt VARCHAR(200))
+DETERMINISTIC
+BEGIN
+
+SELECT teslocation.tesid = eid, teslocation.lid = lid, techevents.tename = ename, techevents.tedescription = edesc,
+teslocation.eventst = est, teslocation.eventet = eet, teslocation.totalattending = ta, teslocation.attendlimit = al, 
+imagelabels.ilabel = ilabel, imagelabels.ialt = ialt FROM teslocation 
+INNER JOIN techevents ON teslocation.tesid = techevents.id
+INNER JOIN locations ON teslocation.lid = locations.id
+INNER JOIN teventilabels ON techevents.id = teventilabels.tesid
+INNER JOIN imagelabels ON imagelabels.id = teventilabels.ilid;
+
+END 
+// DELIMITER ;
+
+
 
 /************************************/
 /***************TRIGGERS*************/
@@ -369,13 +395,13 @@ DROP TRIGGER IF EXISTS createSuperAdmin //
 CREATE TRIGGER createSuperAdmin
   AFTER INSERT ON users
   FOR EACH ROW 
-	BEGIN
+  BEGIN
     DECLARE uCount INT;
     SELECT COUNT(*) INTO uCount
     FROM users;
     IF uCount = 1
     THEN    
-	  CALL UpdatesAdmin();
+    CALL UpdatesAdmin();
     END IF;    
     END;
 // DELIMITER ;
@@ -390,8 +416,8 @@ CALL CreateAccessRight('10', 'super admin');
 SELECT * FROM accessrights;
 
 /********CREATE USERS***************/
-CALL CreateSystemUser('admin@gmail.com', 'a1', 'bobby', 'lite', '5948-953');
-CALL CreateSystemUser('garry@gmail.com', 'a1', 'garry', 'brown', '5455-4489');
+CALL CreateSystemUser('admin@mail.com', 'a1', 'bobby', 'lite', '5948-953');
+CALL CreateSystemUser('user@mail.com', 'a1', 'garry', 'brown', '5455-4489');
 CALL CreateSystemUser('gill@live.com', 'a1', 'gill', 'krones', '5455-6489');
 
 SELECT * FROM users;
@@ -400,7 +426,7 @@ SELECT * FROM users;
 CALL GetUserById(5000);
 
 /********DROP USER***************/
-CALL DropSystemUser(5001);
+CALL DropSystemUser(5002);
 
 /*****CREATE FIRST SUPER ADMIN*******/
 /**********- run in php code*********/
@@ -515,16 +541,16 @@ INSERT INTO lecturer (email, mobile, fname, lname) VALUES ( 'roger.s@gmail.com',
 
 INSERT INTO telecturer (teid, lid) VALUES ('20000', '40000');
 INSERT INTO telecturer (teid, lid) VALUES ('20001', '40001');
-INSERT INTO telecturer (teid, lid) VALUES ('20001', '40002');
+INSERT INTO telecturer (teid, lid) VALUES ('20002', '40002');
 
 INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5000', '20000', '3', '1'); 
-INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5002', '20001', '1', '1');
-INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5002', '20000', '1', '1'); 
-INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5002', '20004', '20', '1'); 
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5001', '20001', '1', '1');
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5001', '20000', '1', '1'); 
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5001', '20004', '20', '1'); 
 INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5003', '20003', '4', '1');
 INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5003', '20006', '47', '1');
 
-INSERT INTO partners (pname, url) VALUES ('falcon', 'http://foocafe.org/');
+INSERT INTO partners (pname, url) VALUES ('falcon', 'https://www.falcon.io/');
 INSERT INTO partners (pname, url) VALUES ('pinmeto', 'https://www.pinmeto.com/');
 INSERT INTO partners (pname, url) VALUES ('microsoft', 'https://www.microsoft.com/'); 
 INSERT INTO partners (pname, url) VALUES ('iis', 'https://www.iis.se/');
@@ -542,11 +568,11 @@ INSERT INTO epartners (eid, pid) VALUES ('20001', '10003');
 INSERT INTO epartners (eid, pid) VALUES ('20002', '10004'); 
 INSERT INTO epartners (eid, pid) VALUES ('20003', '10004');
 
-INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'falcon', 'falcon logo'); 
-INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'pinmeto', 'pinmeto logo');
-INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'microsoft', 'microsoft logo');
-INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'iis', 'iis logo'); 
-INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'king', 'king logo');
+INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'falcon.svg', 'falcon logo'); 
+INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'pinmeto.png', 'pinmeto logo');
+INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'microsoft.svg', 'microsoft logo');
+INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'iis.svg', 'iis logo'); 
+INSERT INTO imagelabels (ilabel, ialt) VALUES ( 'king.svg', 'king logo');
 
 INSERT INTO partnerilabels (pid, ilid) VALUES ('10000', '800000');
 INSERT INTO partnerilabels (pid, ilid) VALUES ('10001', '800001');
@@ -582,3 +608,10 @@ INSERT INTO teventilabels (tesid, ilid) VALUES ('20004', '800013');
 /**    -added passwords for users  CreateUser() procedure **/
 /**    -added passwords for users  user inserts inserts   **/
 /**    -added passwords for users  user inserts           **/
+/**    -added inner join stored procedure getAllTechEvebts**/
+
+EXECUTE get_all_events;
+
+/** 
+CALL getAllTechEvents(@eid, @lid, @ename, @edesc, @est, @eet, @ta, @al, @ilabel, @ialt);
+**/

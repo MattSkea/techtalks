@@ -115,6 +115,83 @@ $(document).on("click", "#header-logout-link", function () {
 	fnLogout();
 });
 
+/****************************************************/
+/*GET ALL EVENTS WHEN THE USER CLICKS ON EVENTS LINK*/
+$('[data-go-to="section-admin-events"]').click(function () {
+
+	/*request the properties from the controller*/
+	fnGetEvents();
+});
+
+/**GET ALL PARTNERS WHEN PARTNERS LINK IS CLICKED**/
+$('[data-go-to="section-partners"]').click(function () {
+	fnHideCurrentWindow();
+
+	/*SHOW THE PARTNERS CONTAINER*/
+	$("#section-partners").css({"display": "block"});
+	/*SHOW THE PARTNERS CATAGORIES*/
+	$("#section-primary-partners").css({"display": "flex"});
+	$("#section-events-partners").css({"display": "flex"});
+
+
+	fnGetPrimaryPartners();
+	fnGetEventsPartners();
+});
+$('[data-go-to="section-admin-events"]').click(function () {
+	fnHideCurrentWindow();
+
+	$("#section-primary-partners").css({"display": "none"});
+	$("#section-events-partners").css({"display": "none"});
+	
+});
+
+
+$('[data-go-to="section-users"]').click(function () {
+
+	$("#section-events-partners").css({"display": "none"});
+	
+});
+
+/************* ADD EVENT - SHOW OVERLAY ************/
+$(document).on("click", "#lbleventAdd" , function(e){
+	var sIdPopUpToShow = $(this).attr("data-popup");
+
+	if(sIdPopUpToShow!=null){
+		fnShowPopUp(sIdPopUpToShow);	
+	}
+
+});
+
+/******APPENDING NEW IMAGES TO THE DOM*************/
+$(document).on('change', '[type="file"]', function () {
+	/*setup fileReader to read file */
+	var preview = new FileReader();
+	/*read contents of blob*/
+	preview.readAsDataURL(this.files[0]);
+
+	var self = this;
+
+
+	preview.onload = function (event) {
+		$(self).siblings(".img-preview").attr("src", event.target.result);
+		$(self).siblings(".img-preview").css("width", "200px");
+		$(self).siblings(".img-preview").css("display", "flex");
+
+		/*extract input file name*/
+		var fileName = self.name;
+		/*extract file name from temp location*/
+		var sFileType = self.value.replace(/.*\\/, "");
+
+
+		var fileDetails = {
+			"fileName": fileName,
+			"fileImage": sFileType
+		};
+
+	};
+});
+
+
 
 /****************************************************/
 /*******************FUNCTIONS************************/
@@ -500,3 +577,264 @@ function fnLogout() {
 	});
 }
 /****************************************************/
+
+/****************************************************/
+/*user CRUD*/
+/*READ USERS*/
+function fnGetUsers() {
+	/*setup ajax url*/
+	var sUrl = "services/api-user-read.php";
+	/*connect to the server and get all the users*/
+	$.getJSON(sUrl, function (jData) {
+		var iUserCountNew = jData.length;
+
+		/*setup variable - checking if new items have been added*/
+		var checkUpdate = fnCheckUpdates(iUserCountOld, iUserCountNew);
+
+		/*get the json status*/
+		var sStatus = jData.status;
+		var sError = "error";
+
+		/*make sure the client is reveiving data*/
+		if (sStatus !== sError) {
+			if (checkUpdate == true) {
+				/*setup the old user count to = the new user count*/
+				iUserCountOld = iUserCountNew;
+
+				/*revers the jData being received*/
+				jData.reverse();
+
+				/*user table row blueprint*/
+				var sUserBlueprint = '\
+				<div class="aside-user-content user-row">\
+				<div class="lbl-user-id">{{id}}</div>\
+				<div class="lbl-user-email">{{email}}</div>\
+				<div class="lbl-user-fname">{{fName}}</div>\
+				<div class="lbl-user-lname">{{lName}}</div>\
+				<div class="lbl-user-mobile">{{mobile}}</div>\
+				<div class="lbl-user-password">{{password}}</div>\
+				<div class="lbl-user-type" data-the-icon="{{the-icon-id}}">\
+				<span class="fa {{the-icon}} fa-fw"></span>\
+				<div class="lbl-user-type-txt">{{the-icon-role}}</div>\
+				</div>\
+				<div class="btn-user-edit lbl-user-edit users-icons fa fa-edit fa-fw" data-go-to="section-register"></div>\
+				<div class="btn-user-delete lbl-user-delete users-icons fa fa-trash fa-fw"></div>\
+				</div>';
+
+				/*empty all the rows below the navigation in the table*/
+				$(".article-user-rows").empty();
+
+				/*iterate over the data recieved from the server*/
+				for (var i = 0; i < jData.length; i++) {
+					/*create a blueprint of the template that can be used as rows for the table*/
+					var sUserTemplate = sUserBlueprint;
+
+					/*get the information from each item*/
+					var sUserTemplateId = jData[i].id;
+					var sUserTemplateEmail = jData[i].email;
+					var sUserTemplateFname = jData[i].fname;
+					var sUserTemplateLname = jData[i].lname;
+					var sUserTemplateMobile = jData[i].mobile;
+					var sUserTemplatePassword = jData[i].password;
+					var sUserTemplateUserid = jData[i].userType.id;
+					var sUserTemplateUserRole = jData[i].userType.role;
+					var sUserTemplateUserIcon = jData[i].userType.icon;
+
+					/*replace the placeholders in the template with the data recieved from the server*/
+					sUserTemplate = sUserTemplate.replace("{{id}}", sUserTemplateId);
+					sUserTemplate = sUserTemplate.replace("{{email}}", sUserTemplateEmail);
+					sUserTemplate = sUserTemplate.replace("{{fName}}", sUserTemplateFname);
+					sUserTemplate = sUserTemplate.replace("{{lName}}", sUserTemplateLname);
+					sUserTemplate = sUserTemplate.replace("{{mobile}}", sUserTemplateMobile);
+					sUserTemplate = sUserTemplate.replace("{{password}}", sUserTemplatePassword);
+					sUserTemplate = sUserTemplate.replace("{{the-icon-id}}", sUserTemplateUserid);
+					sUserTemplate = sUserTemplate.replace("{{the-icon}}", sUserTemplateUserIcon);
+					sUserTemplate = sUserTemplate.replace("{{the-icon-role}}", sUserTemplateUserRole);
+
+					/*append the new row to the cleared table*/
+					$(".article-user-rows").append(sUserTemplate);
+				}
+
+			}
+		}
+	}).done(function (jData) {
+		/*start interval to get users rows*/
+		fnStartUpdatingUsers();
+
+
+		/*check if the system has to lock itself*/
+//        fnGetSystemLock()
+
+
+}).error(function () {
+	console.log("error - trying to create a user");
+});
+
+};
+/****************************************************/
+
+/*EVEMT CRUD*/
+/*READ EVENT*/
+function fnGetEvents() {
+	/*setup ajax url*/
+	var sUrl = "services/api-events-read.php";
+	/*connect to the server and get all the events*/
+	$.getJSON(sUrl, function (jData) {
+
+		/*get the json status*/
+		var sStatus = jData.status;
+		var sError = "error";
+
+		/*events table row blueprint*/
+		var sEventsBlueprint = '<div class="aside-event-content event-row dynamic-rows">\
+		<div class="lbl-event-id">{{id}}</div>\
+		<div class="lbl-event-image">{{image}}</div>\
+		<div class="lbl-event-name">{{name}}</div>\
+		<div class="lbl-event-location">{{location}}</div>\
+		<div class="lbl-event-st">{{st}}</div>\
+		<div class="lbl-event-et">{{et}}</div>\
+		<div class="lbl-event-ta">{{ta}}</div>\
+		<div class="lbl-event-mc">{{mc}}</div>\
+		<div class="lbl-event-type" data-popup="section-event-edit">\
+		<div class="btn-event-view lbl-event-edit events-icons fa fa-eye fa-fw" data-go-to="section-event-view"></div>\
+		</div>\
+		<div class="btn-event-edit lbl-event-edit events-icons fa fa-edit fa-fw" data-popup="section-event-edit"></div>\
+		<div class="btn-event-delete lbl-event-delete events-icons fa fa-trash fa-fw"></div>\
+		</div>';
+
+		/*empty all the rows below the navigation in the table*/
+		$(".article-event-rows").empty();
+
+		/*iterate over the data recieved from the server*/
+		for (var i = 0; i < jData.length; i++) {
+			/*create a blueprint of the template that can be used as rows for the table*/
+			var sEventTemplate = sEventsBlueprint;
+
+			/*get the information from each item*/
+			var sEventTemplateTesid = jData[i].tesid;
+			var sEventemplateLid = jData[i].lid;
+			var sEventTemplateTename = jData[i].tename;
+			var sEventTemplateTedesc = jData[i].tedescription;
+			var sEventTemplateAddr = jData[i].address;
+			var sEventTemplateST = jData[i].eventst;
+			var sEventTemplateET = jData[i].eventet;
+			var sEventTemplateTA = jData[i].totalattending;
+			var sEventTemplateMaxAttending = jData[i].attendlimit;
+			var sEventTemplateIL = jData[i].ilabel;
+			var sEventTemplateIalt = jData[i].ialt;
+
+			/*replace the placeholders in the template with the data recieved from the server*/
+			sEventTemplate = sEventTemplate.replace("{{id}}", sEventTemplateTesid);
+			sEventTemplate = sEventTemplate.replace("{{image}}", sEventTemplateIL);
+			sEventTemplate = sEventTemplate.replace("{{name}}", sEventTemplateTename);
+			sEventTemplate = sEventTemplate.replace("{{location}}", sEventTemplateAddr);
+			sEventTemplate = sEventTemplate.replace("{{st}}", sEventTemplateST);
+			sEventTemplate = sEventTemplate.replace("{{et}}", sEventTemplateET);
+			sEventTemplate = sEventTemplate.replace("{{ta}}", sEventTemplateTA);
+			sEventTemplate = sEventTemplate.replace("{{mc}}", sEventTemplateMaxAttending);
+
+			/*append the new row to the cleared table*/
+			$(".article-event-rows").append(sEventTemplate);
+
+		}
+	});
+};
+/****************************************************/
+
+/****************************************************/
+
+/*PRIMARY PARTNER CRUD*/
+/*READ PRIMARY PARTNER */
+function fnGetPrimaryPartners() {
+	/*setup ajax url*/
+	var sUrl = "services/api-partners-primary-read.php";
+	/*connect to the server and get all the events*/
+	$.getJSON(sUrl, function (jData) {
+
+		var sPartnersBlueprint = '\
+		<div class="aside-primary-partners-content user-row dynamic-rows">\
+		<div class="lbl-partner-id">{{id}}</div>\
+		<div class="lbl-primary-partners-image">{{image}}</div>\
+		<div class="lbl-primary-partners-name">{{name}}</div>\
+		<div class="lbl-event-partner-url"><a href="{{url1}}" target="_blank" >{{url2}}</a></div>\
+		<div class="btn-primary-partner-view lbl-primary-partner-edit primary-icons fa fa-eye fa-fw" data-go-to="section-partner-view"></div>\
+		<div class="btn-primary-partner-edit lbl-primary-partner-edit primary-icons fa fa-edit fa-fw" data-popup="section-partner-edit"></div>\
+		<div class="btn-primary-partner-delete lbl-primary-partner-delete primary-icons fa fa-trash fa-fw"></div>\
+		</div>';
+
+
+		/*empty all the rows below the navigation in the table*/
+		$("#dynamic-primary-partners-rows").empty();
+
+		/*iterate over the data recieved from the server*/
+		for (var i = 0; i < jData.length; i++) {
+			var sPartnerTemplate = sPartnersBlueprint;
+
+			/*get the information from each item*/
+			var sPartneremplatePPid = jData[i].id;
+			var sPartnerTemplatePname = jData[i].pname;
+			var sPartnerTemplatePUrl = jData[i].url;
+			var sPartnerTemplateImgLbl = jData[i].ilabel;
+			var sPartnerTemplateImgAlt = jData[i].ialt;
+
+			/*replace the placeholders in the template with the data recieved from the server*/
+			sPartnerTemplate = sPartnerTemplate.replace("{{id}}", sPartneremplatePPid);
+			sPartnerTemplate = sPartnerTemplate.replace("{{image}}", sPartnerTemplateImgLbl);
+			sPartnerTemplate = sPartnerTemplate.replace("{{name}}", sPartnerTemplatePname);
+			sPartnerTemplate = sPartnerTemplate.replace("{{url1}}", sPartnerTemplatePUrl);
+			sPartnerTemplate = sPartnerTemplate.replace("{{url2}}", sPartnerTemplatePUrl);
+
+			/*append the new row to the cleared table*/
+			$("#dynamic-primary-partners-rows").append(sPartnerTemplate);
+
+		}
+	});
+};
+function fnGetEventsPartners() {
+	/*setup ajax url*/
+	var sUrl = "services/api-partners-events-read.php";
+	/*connect to the server and get all the events*/
+	$.getJSON(sUrl, function (jData) {
+
+		var sPartnersBlueprint = '\
+		<div class="aside-event-partner-content user-row dynamic-rows">\
+		<div class="lbl-user-id">{{id}}</div>\
+		<div class="lbl-event-partner-image">{{image}}</div>\
+		<div class="lbl-event-partner-name">{{name}}</div>\
+		<div class="lbl-event-partner-event-name"> {{ename}}</div>\
+		<div class="lbl-event-partner-url"><a href="{{url1}}" target="_blank" >{{url2}}</a></div>\
+		<div class="btn-event-view lbl-event-edit events-icons fa fa-eye fa-fw" data-go-to="section-partner-view"></div>\
+		<div class="btn-event-edit lbl-event-edit events-icons fa fa-edit fa-fw" data-popup="section-partner-edit"></div>\
+		<div class="btn-event-delete lbl-event-delete events-icons fa fa-trash fa-fw"></div>\
+		</div>';
+
+
+		/*empty all the rows below the navigation in the table*/
+		$("#dynamic-event-partner-rows").empty();
+
+		/*iterate over the data recieved from the server*/
+		for (var i = 0; i < jData.length; i++) {
+			var sPartnerTemplate = sPartnersBlueprint;
+
+			/*get the information from each item*/
+			var sPartneremplatePPid = jData[i].id;
+			var sPartnerTemplatePname = jData[i].pname;
+			var sPartnerTemplateEname = jData[i].tename;
+			var sPartnerTemplatePUrl = jData[i].url;
+			var sPartnerTemplateImgLbl = jData[i].ilabel;
+			var sPartnerTemplateImgAlt = jData[i].ialt;
+
+			/*replace the placeholders in the template with the data recieved from the server*/
+			sPartnerTemplate = sPartnerTemplate.replace("{{id}}", sPartneremplatePPid);
+			sPartnerTemplate = sPartnerTemplate.replace("{{image}}", sPartnerTemplateImgLbl);
+			sPartnerTemplate = sPartnerTemplate.replace("{{name}}", sPartnerTemplatePname);
+			sPartnerTemplate = sPartnerTemplate.replace("{{ename}}", sPartnerTemplateEname);
+			sPartnerTemplate = sPartnerTemplate.replace("{{url1}}", sPartnerTemplatePUrl);
+			sPartnerTemplate = sPartnerTemplate.replace("{{url2}}", sPartnerTemplatePUrl);
+
+			/*append the new row to the cleared table*/
+			$("#dynamic-event-partner-rows").append(sPartnerTemplate);
+
+		}
+	});
+};
