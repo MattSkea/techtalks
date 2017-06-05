@@ -242,7 +242,12 @@ footer .social-media-icons{
 #form-login,
 #form-register,
 #form-contact-us,
-#form-confirm-booking{
+#form-confirm-booking,
+#form-event-create,
+#form-partner-event-link,
+#form-partner-primary-create,
+#form-partner-primary-link,
+#form-partner-event-create{
 	display: flex;
 	// justify-content: center;
 
@@ -1059,6 +1064,13 @@ footer .social-media-icons{
 .popup{
 	display:flex !important;
 	position:absolute;
+	z-index:100;
+	justify-content:center;
+	align-items:center;
+
+}
+.popupAdmin{
+	display:flex !important;
 	z-index:100;
 	justify-content:center;
 	align-items:center;

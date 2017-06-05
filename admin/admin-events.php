@@ -16,14 +16,14 @@
     <div class="article-event-table" >
         <!-- FIRST EVENTS ROW -->
         <div id="event-icons">
-            <div id="lbleventAdd" class="event-icon admin-button" data-popup="section-event-create">
+            <div id="lbleventAdd" class="popupAdminSelect event-icon admin-button" data-popup="section-event-create">
                 <div class="faicons">
                     <span class="fa fa-plus"></span><span class="fa fa-newspaper-o"></span>
                 </div>
                 <div>Add event</div>					
             </div>
 
-            <div  class="event-partner-icon link admin-button" data-popup="section-partner-event-link">
+            <div  class=" popupAdminSelect event-partner-icon admin-button" data-popup="section-partner-event-link">
                 <div  class="faicons">
                     <span class="fa fa-plus"></span><span class="fa fa-link"></span>
                 </div>

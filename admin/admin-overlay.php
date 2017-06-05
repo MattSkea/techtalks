@@ -8,7 +8,7 @@
 
 			<!--********EDIT PARTNERS************-->
 			<?php require_once "./admin/admin-partner-edit.php"; ?>
-
+			<?php require_once "./admin/admin-event-edit.php"; ?>
 			<!--********CREATE PRIMARY PARTNER**********-->
 			<?php require_once "./admin/admin-partner-primary-create.php"; ?>
 			<!--********LINK PRIMARY PARTNER************-->

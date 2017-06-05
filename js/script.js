@@ -157,11 +157,12 @@ $('[data-go-to="section-users"]').click(function () {
 });
 
 /************* ADD EVENT - SHOW OVERLAY ************/
-$(document).on("click", "#lbleventAdd" , function(e){
+$(document).on("click", ".popupAdminSelect" , function(e){
 	var sIdPopUpToShow = $(this).attr("data-popup");
 
 	if(sIdPopUpToShow!=null){
-		fnShowPopUp(sIdPopUpToShow);	
+		fnShowPopUpAdmin(sIdPopUpToShow);	
+			showOverlay();   
 	}
 
 });
@@ -228,6 +229,18 @@ function fnShowPopUp(windowName){
 	$("#appender").css("display","flex");
 	showOverlay();
 }
+
+function fnShowPopUpAdmin(windowName){
+	//console.log($("#"+windowName).html());
+	var windowHtml=$("#"+windowName)[0].outerHTML;
+	// console.log(windowHtml);
+	//$(("#"+windowName).html()).appendTo("#appender");
+	$("#appender").html('<div id="section-overlay" class="mark">\
+	<div id="overlay-message">'+windowHtml+"</div></div>");
+	$("#"+windowName).addClass("popupAdmin");
+	$("#appender").css("display","flex");
+	showOverlay();
+}
 /****************************************************/
 /*TOGGLE CONTAINER FLEX*/
 function toggleContainerFlex(containerName){
@@ -274,7 +287,10 @@ function fnShowSelectedWindow(sIdWindowToShow) {
 	console.log(sIdWindowToShow)
 	/*show the selected window*/
 	$("#" + sIdWindowToShow).css({"display": "flex"});
+	if (sIdWindowToShow.indexOf("event") >= 0){
 	google.maps.event.trigger(map, 'resize');
+	console.log("aosiduosdíáwqdliahsdhaszdasíádziuaszdiía");
+	}
 }
 /*HIDE CURRENT WINDOW*/
 function fnHideCurrentWindow() {
@@ -333,12 +349,6 @@ function initMap() {
 		map: map
 	});
 };
-$(document).ready(function() {
-	$(window).resize(function() {
-		google.maps.event.trigger(map, 'resize');
-	});
-	google.maps.event.trigger(map, 'resize');
-});
 
 
 /****************************************************/

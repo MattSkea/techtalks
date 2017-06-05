@@ -1,5 +1,6 @@
 
 <div id="section-event-create" class="section">
+
     <div id="article-event-create" class="articles">
         <!-- FORM CONTAINER -->
         <form id="form-event-create" class="form">

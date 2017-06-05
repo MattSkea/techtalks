@@ -17,14 +17,14 @@
     <div class="article-primary-partners-table" >
         <!-- FIRST primary PARTNERS ROW -->
         <div id="primary-partners-icons" >
-            <div id="lblprimary-partnerAdd" class="primary-partners-icon link admin-button" data-popup="section-partner-primary-create">
+            <div id="lblprimary-partnerAdd" class="primary-partners-icon popupAdminSelect admin-button" data-popup="section-partner-primary-create">
                 <div class="faicons">
                     <span class="fa fa-plus"></span><span class="fa fa-newspaper-o"></span>
                 </div>
                 <div>Add primary partner</div>					
             </div>
 
-            <div  class="event-partner-icon link admin-button" data-popup="section-partner-primary-link">
+            <div  class="event-partner-icon popupAdminSelect admin-button" data-popup="section-partner-primary-link">
                 <div class="faicons">
                     <span class="fa fa-plus"></span><span class="fa fa-link"></span>
                 </div>

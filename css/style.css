@@ -195,7 +195,12 @@ footer .social-media-icons {
 #form-login,
 #form-register,
 #form-contact-us,
-#form-confirm-booking {
+#form-confirm-booking,
+#form-event-create,
+#form-partner-event-link,
+#form-partner-primary-create,
+#form-partner-primary-link,
+#form-partner-event-create {
   display: flex;
   /*increase padding for table & pc media queries*/
   padding-right: 10px;
@@ -205,7 +210,12 @@ footer .social-media-icons {
   #form-login input,
   #form-register input,
   #form-contact-us input,
-  #form-confirm-booking input {
+  #form-confirm-booking input,
+  #form-event-create input,
+  #form-partner-event-link input,
+  #form-partner-primary-create input,
+  #form-partner-primary-link input,
+  #form-partner-event-create input {
     width: 280px;
     height: 30px;
     padding: 2px 0 0 4px;
@@ -213,7 +223,12 @@ footer .social-media-icons {
   #form-login .button,
   #form-register .button,
   #form-contact-us .button,
-  #form-confirm-booking .button {
+  #form-confirm-booking .button,
+  #form-event-create .button,
+  #form-partner-event-link .button,
+  #form-partner-primary-create .button,
+  #form-partner-primary-link .button,
+  #form-partner-event-create .button {
     margin: 0 auto; }
 
 #btn-user {
@@ -899,6 +914,12 @@ footer .social-media-icons {
 .popup {
   display: flex !important;
   position: absolute;
+  z-index: 100;
+  justify-content: center;
+  align-items: center; }
+
+.popupAdmin {
+  display: flex !important;
   z-index: 100;
   justify-content: center;
   align-items: center; }

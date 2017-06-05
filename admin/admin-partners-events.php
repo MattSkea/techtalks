@@ -17,14 +17,14 @@
     <div class="article-event-partner-table" >
         <!-- FIRST EVENTS PARTNERS ROW -->
         <div id="event-partner-icons" class="">
-            <div  class="event-partner-icon admin-button link" data-popup="section-partner-event-create">
+            <div  class="event-partner-icon admin-button popupAdminSelect" data-popup="section-partner-event-create">
                 <div  class="faicons">
                     <span class="fa fa-plus"></span><span class="fa fa-handshake-o"></span>
                 </div>
                 <div>Add event partner</div>					
             </div>
 
-            <div  class="event-partner-icon link admin-button" data-popup="section-partner-event-link">
+            <div  class="event-partner-icon popupAdminSelect admin-button" data-popup="section-partner-event-link">
                 <div  class="faicons">
                     <span class="fa fa-plus"></span><span class="fa fa-link"></span>
                 </div>
