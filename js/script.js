@@ -702,7 +702,7 @@ function fnGetEvents() {
 		/*events table row blueprint*/
 		var sEventsBlueprint = '<div class="aside-event-content event-row dynamic-rows">\
 		<div class="lbl-event-id">{{id}}</div>\
-		<div class="lbl-event-image">{{image}}</div>\
+		<div class="lbl-event-image"><img src="./img/content/{{image}}"></div>\
 		<div class="lbl-event-name">{{name}}</div>\
 		<div class="lbl-event-location">{{location}}</div>\
 		<div class="lbl-event-st">{{st}}</div>\
@@ -767,7 +767,7 @@ function fnGetPartners() {
 		var sPartnersBlueprint = '\
 		<div class="aside-partners-content user-row dynamic-rows">\
 		<div class="lbl-partner-id">{{id}}</div>\
-		<div class="lbl-partners-image"><img src="./img/content/{{image}}""></div>\
+		<div class="lbl-partners-image"><img src="./img/content/{{image}}"></div>\
 		<div class="lbl-partners-name">{{name}}</div>\
 		<div class="lbl-event-partner-url"><a href="{{url1}}" target="_blank" >{{url2}}</a></div>\
 		<div class="btn-partner-view lbl-partner-edit icons fa fa-eye fa-fw" data-go-to="section-partner-view"></div>\
