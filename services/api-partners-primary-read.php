@@ -1,7 +1,6 @@
 <?php
 include '../inc/db.php';
 
-
 $stmt = $db->prepare('SELECT partners.id, partners.pname, partners.url, imagelabels.ilabel, imagelabels.ialt FROM  partners
 	INNER JOIN ppartners ON partners.id = ppartners.pid
 	INNER JOIN partnerilabels ON partners.id = partnerilabels.pid

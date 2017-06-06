@@ -727,7 +727,8 @@ footer .social-media-icons{
 #section-admin-events,
 #section-users,
 #section-events-partners,
-#section-primary-partners{
+#section-primary-partners,
+#section-partners-all{
 	display: none;
 	flex-direction: column;
 	background-color: $lighter50AcctColor1;
@@ -746,7 +747,8 @@ footer .social-media-icons{
 .aside-event-content,
 .aside-user-content,
 .aside-event-partner-content,
-.aside-primary-partners-content{
+.aside-primary-partners-content,
+.aside-partners-content{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -769,7 +771,8 @@ footer .social-media-icons{
 .aside-event-content div,
 .aside-user-content div,
 .aside-event-partner-content div,
-.aside-primary-partners-content div{
+.aside-primary-partners-content div,
+.aside-partners-content div{
 	width:12.5%;
 	/*CENTERS ALL THE ITEMS IN THE TABLE*/
 	/*text-align:  center;*/
@@ -835,8 +838,8 @@ footer .social-media-icons{
 }
 
 .dynamic-rows img{
-	width: 100%;
-	height: auto;
+	// width: 100%;    
+	height: 23px;
 }
 
 /*MEDIA QUERY - TABLET*/

@@ -1,7 +1,6 @@
 <?php 
 include '../inc/db.php';
 
-
 $stmt = $db->prepare('SELECT teslocation.tesid, teslocation.lid, techevents.tename, locations.address, techevents.tedescription,teslocation.eventst, teslocation.eventet, teslocation.totalattending, teslocation.attendlimit, imagelabels.ilabel, imagelabels.ialt FROM teslocation 
 	INNER JOIN techevents ON teslocation.tesid = techevents.id
 	INNER JOIN locations ON teslocation.lid = locations.id

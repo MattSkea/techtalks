@@ -137,7 +137,7 @@ $('[data-go-to="section-partners"]').click(function () {
 	$("#section-primary-partners").css({"display": "flex"});
 	$("#section-events-partners").css({"display": "flex"});
 
-
+	fnGetPartners();
 	fnGetPrimaryPartners();
 	fnGetEventsPartners();
 });
@@ -162,7 +162,7 @@ $(document).on("click", ".popupAdminSelect" , function(e){
 
 	if(sIdPopUpToShow!=null){
 		fnShowPopUpAdmin(sIdPopUpToShow);	
-			showOverlay();   
+		showOverlay();   
 	}
 
 });
@@ -756,6 +756,53 @@ function fnGetEvents() {
 /****************************************************/
 
 /****************************************************/
+/*PRIMARY CRUD*/
+/*READ PARTNER */
+function fnGetPartners() {
+	/*setup ajax url*/
+	var sUrl = "services/api-partners-read.php";
+	/*connect to the server and get all the events*/
+	$.getJSON(sUrl, function (jData) {
+
+		var sPartnersBlueprint = '\
+		<div class="aside-partners-content user-row dynamic-rows">\
+		<div class="lbl-partner-id">{{id}}</div>\
+		<div class="lbl-partners-image"><img src="./img/content/{{image}}""></div>\
+		<div class="lbl-partners-name">{{name}}</div>\
+		<div class="lbl-event-partner-url"><a href="{{url1}}" target="_blank" >{{url2}}</a></div>\
+		<div class="btn-partner-view lbl-partner-edit icons fa fa-eye fa-fw" data-go-to="section-partner-view"></div>\
+		<div class="btn-partner-edit lbl-partner-edit icons fa fa-edit fa-fw" data-popup="section-partner-edit"></div>\
+		<div class="btn-partner-delete lbl-partner-delete icons fa fa-trash fa-fw"></div>\
+		</div>';
+
+
+		/*empty all the rows below the navigation in the table*/
+		$("#dynamic-partners-rows").empty();
+
+		/*iterate over the data recieved from the server*/
+		for (var i = 0; i < jData.length; i++) {
+			var sPartnerTemplate = sPartnersBlueprint;
+
+			/*get the information from each item*/
+			var sPartneremplatePPid = jData[i].id;
+			var sPartnerTemplatePname = jData[i].pname;
+			var sPartnerTemplatePUrl = jData[i].url;
+			var sPartnerTemplateImgLbl = jData[i].ilabel;
+			var sPartnerTemplateImgAlt = jData[i].ialt;
+
+			/*replace the placeholders in the template with the data recieved from the server*/
+			sPartnerTemplate = sPartnerTemplate.replace("{{id}}", sPartneremplatePPid);
+			sPartnerTemplate = sPartnerTemplate.replace("{{image}}", sPartnerTemplateImgLbl);
+			sPartnerTemplate = sPartnerTemplate.replace("{{name}}", sPartnerTemplatePname);
+			sPartnerTemplate = sPartnerTemplate.replace("{{url1}}", sPartnerTemplatePUrl);
+			sPartnerTemplate = sPartnerTemplate.replace("{{url2}}", sPartnerTemplatePUrl);
+
+			/*append the new row to the cleared table*/
+			$("#dynamic-partners-rows").append(sPartnerTemplate);
+
+		}
+	});
+};
 
 /*PRIMARY PARTNER CRUD*/
 /*READ PRIMARY PARTNER */

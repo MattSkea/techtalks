@@ -19,7 +19,7 @@
         <div id="primary-partners-icons" >
             <div id="lblprimary-partnerAdd" class="primary-partners-icon popupAdminSelect admin-button" data-popup="section-partner-primary-create">
                 <div class="faicons">
-                    <span class="fa fa-plus"></span><span class="fa fa-newspaper-o"></span>
+                    <span class="fa fa-plus"></span><span class="fa fa-handshake-o"></span>
                 </div>
                 <div>Add primary partner</div>					
             </div>
@@ -30,6 +30,7 @@
                 </div>
                 <div>Link primary partner</div>                    
             </div>
+            
         </div>
         <!-- SECOND PRIMARY PARTNERS ROW -->
         <div id="primary-partners-layout" class="aside-primary-partners-content table-header" >
@@ -56,5 +57,4 @@
         </div>
     </div>
 
-</div>
 </div>
