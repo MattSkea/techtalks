@@ -517,16 +517,16 @@ CALL CreateTechEvent('Software QA and Testing - Docker for Testing and Testing i
 CALL CreateTechEvent('Ionic pop-up event','This time together with Ionic Denmark and AngularJS Copenhagen we are pleased to have Sani Yusuf for a great Ionic talk just 2 days before his talk at ngVikings. \n Ionic has reached its stable release in Jan 2017 and there are a lot of great goodies out there for it. PWAs is also the hottest technology going around and in this session, Sani Yusuf from the Ionic UK community will show how we can use Ionic to achieve a working PWA app and have our app work offline while still having 3 applications.');
 CALL CreateTechEvent('Scala Second Coding Session','Hello Scala enthusiasts, \n Our last Scala coding session on January 17th was a big success. We were so happy to finally meet so many of you scala coders and received a lot of positive feedback after the event. As the result, we hereby introduce our second Scala coding session, in collaboration with the Copenhagen Scala User Group. \n For those for are new, the idea is simple. Let us get together and create something awesome in Scala. It does not have to be feature complete but it should bring enough exposure to the language and the power that it brings. Do not be shy to share ideas, as we will come up with a couple of small or one big project that we can code up together.  \n For those who attended the first coding session, as agreed, we will have a follow up to finish our Akka Actor task, possibly start a new one and talk about Partial Functions.  \n Akka actor assignment: https://github.com/amupoti/Principles-of-Reactive-Programming/blob/master/w5/actorbintree/src/main/scala/actorbintree/BinaryTreeSet.scala  \n And the task description: https://github.com/amupoti/Principles-of-Reactive-Programming/blob/master/w5/week5.actorbintree-instructions.pdf ');
 
-CALL CreateLocation('Ap #559-467 Libero. Rd.','426421');
-CALL CreateLocation('5348 Elementum Road','H1A 5Y7');
-CALL CreateLocation('P.O. Box 293, 966 Enim Avenue','R4Z 7L5');
-CALL CreateLocation('250-2978 Sed Ave','L1X 9N5');
-CALL CreateLocation('Ap #776-1877 Morbi St.','42248');
-CALL CreateLocation('482-4506 Mollis. Road','7495');
-CALL CreateLocation('Ap #220-131 Magna Avenue','25367');
-CALL CreateLocation('P.O. Box 226, 318 Laoreet, Rd.','JR8F 1UA');
-CALL CreateLocation('393-9185 Tortor Ave','299322');
-CALL CreateLocation('5912 Blandit Ave','21119');
+CALL CreateLocation('Lygten 23','2000');
+CALL CreateLocation('Enghavevej 61','1400');
+CALL CreateLocation('Skotterupgade 3','2000');
+CALL CreateLocation('Nørrebrogade 151','2000');
+CALL CreateLocation('Nordre Fasanvej 133B','2000');
+CALL CreateLocation('Solsortvej 103-121','2000');
+CALL CreateLocation('Mathilde Fibigers Vej 2','2000');
+CALL CreateLocation('Howitzvej 73','2000');
+CALL CreateLocation('Jægersborggade 18','2000');
+CALL CreateLocation('Bentzonsvej 51','2000');
 
 INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20003', '25006', '2017-05-21 11:00:00', '2017-05-21 18:00:00', CURRENT_TIMESTAMP, NULL, '60'); 
 INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20005', '25006', '2017-05-09 00:00:00', '2017-05-09 18:00:00', CURRENT_TIMESTAMP, NULL, '200'); 
