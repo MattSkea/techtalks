@@ -25,7 +25,7 @@
             <textarea id="txt-contact-us-password" name="email-content" rows="8"  placeholder="Email content"></textarea>
 
             <!-- SUBMIT BUTTON -->
-            <div class="button-green button ">Send</div>
+            <div class="button-green button contact-techtalks">Send</div>
 
         </form>
     </div>

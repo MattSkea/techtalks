@@ -119,6 +119,10 @@ $(document).on("click", "#header-logout-link", function () {
 	fnLogout();
 });
 
+$(document).on("click", ".contact-techtalks", function () {
+		hideOverlay();
+		fnContactAlert();
+});
 /****************************************************/
 /*GET ALL EVENTS WHEN THE USER CLICKS ON EVENTS LINK*/
 $('[data-go-to="section-admin-events"]').click(function () {
@@ -686,7 +690,15 @@ function fnGetUsers() {
 
 };
 /****************************************************/
-
+function fnContactAlert() {
+	swal({
+		"title": "EMAIL SENT",
+		"text": "We will get back to you as soon. Have a nice day.",
+		"type": "success",
+		"confirmButtonText": "Continue",
+		"confirmButtonColor": "#8bc34a"
+	});
+}
 /*EVEMT CRUD*/
 /*READ EVENT*/
 function fnGetEvents() {
