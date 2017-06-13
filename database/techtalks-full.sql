@@ -1,7 +1,4 @@
-﻿/*************DROP USERS*************/
-DROP USER 'techtdbadmin'@'localhost';
-DROP USER 'techtwebadmin'@'localhost';
-DROP USER 'techtwebuser'@'localhost';
+
 
 /************************************/
 /************DROP DATABASE***********/
@@ -17,9 +14,13 @@ USE techtalks;
 
 /************************************/
 /************CREATE USERS************/
+DROP USER 'techtdbadmin'@'localhost';
+DROP USER 'techtwebadmin'@'localhost';
+DROP USER 'techtwebuser'@'localhost';
 CREATE USER 'techtdbadmin'@'localhost' IDENTIFIED BY 'qwertydba';
 CREATE USER 'techtwebadmin'@'localhost' IDENTIFIED BY 'qwertywa';
 CREATE USER 'techtwebuser'@'localhost' IDENTIFIED BY 'qwertywu';
+
 /************************************/
 /*******GRANT USERS PRIVILEGES*******/
 GRANT ALL PRIVILEGES ON * TO 'techtdbadmin'@'localhost';
@@ -374,21 +375,89 @@ CREATE PROCEDURE getAllTechEvents(OUT eid INT, OUT lid INT, OUT ename VARCHAR(80
 DETERMINISTIC
 BEGIN
 
-SELECT teslocation.tesid = eid, teslocation.lid = lid, techevents.tename = ename, techevents.tedescription = edesc,
-teslocation.eventst = est, teslocation.eventet = eet, teslocation.totalattending = ta, teslocation.attendlimit = al, 
-imagelabels.ilabel = ilabel, imagelabels.ialt = ialt FROM teslocation 
+SELECT teslocation.tesid AS eid, teslocation.lid AS lid, techevents.tename AS ename, techevents.tedescription AS edesc,
+teslocation.eventst AS est, teslocation.eventet AS eet, teslocation.totalattending AS ta, teslocation.attendlimit AS al, 
+imagelabels.ilabel AS ilabel, imagelabels.ialt AS ialt FROM teslocation 
 INNER JOIN techevents ON teslocation.tesid = techevents.id
 INNER JOIN locations ON teslocation.lid = locations.id
 INNER JOIN teventilabels ON techevents.id = teventilabels.tesid
-INNER JOIN imagelabels ON imagelabels.id = teventilabels.ilid;
+INNER JOIN imagelabels ON imagelabels.id = teventilabels.ilid ORDER BY eid DESC;
 
 END 
 // DELIMITER ;
 
 
+/******* CREATE USER ATTENDING EVENT *****/
+DELIMITER //
+DROP PROCEDURE IF EXISTS submit_user_attending_event //
+CREATE PROCEDURE submit_user_attending_event (IN user_id INT, IN event_id INT, IN seats INT)
+DETERMINISTIC
+BEGIN
+
+INSERT INTO userattending(uid, tesid, reservedseats, attending)
+VALUES (user_id, event_id, seats, '1');
+
+END 
+// DELIMITER ;
+
+/******* DROP USER ATTENDING EVENT *****/
+DELIMITER //
+DROP PROCEDURE IF EXISTS drop_user_attending_event //
+CREATE PROCEDURE drop_user_attending_event (IN user_id INT, IN event_id INT)
+DETERMINISTIC
+BEGIN
+
+UPDATE teslocation 
+INNER JOIN userattending ON teslocation.tesid = userattending.tesid
+SET totalattending = (totalattending - userattending.reservedseats) 
+WHERE teslocation.tesid = event_id;
+
+DELETE FROM userattending WHERE uid = user_id AND tesid = event_id;
+
+END 
+// DELIMITER ;
+
+/******* SELECT USER ATTENDING EVENT *****/
+DELIMITER //
+DROP PROCEDURE IF EXISTS select_user_attending_event //
+CREATE PROCEDURE select_user_attending_event (IN user_id INT, IN event_id INT)
+DETERMINISTIC
+BEGIN
+
+SELECT uid, tesid, reservedseats, attending FROM userattending WHERE uid = user_id AND tesid = event_id;
+
+END 
+// DELIMITER ;
+
+/******* EDIT USER ATTENDING EVENT *****/
+DELIMITER //
+DROP PROCEDURE IF EXISTS update_user_attending_event //
+CREATE PROCEDURE update_user_attending_event (IN user_id INT, IN event_id INT, IN seats INT, IN willAttend INT)
+DETERMINISTIC
+BEGIN
+
+UPDATE userattending SET reservedseats = seats, attending = willAttend WHERE uid = user_id AND tesid = event_id;
+
+END 
+// DELIMITER ;
 
 /************************************/
 /***************TRIGGERS*************/
+DELIMITER //
+DROP TRIGGER IF EXISTS calculate_event_seats_remaining //
+CREATE TRIGGER calculate_event_seats_remaining
+  BEFORE INSERT ON userattending
+  FOR EACH ROW 
+  BEGIN
+  
+	SET @seatsSum = NEW.reservedseats;
+    
+	UPDATE teslocation SET totalattending = (totalattending +  @seatsSum) WHERE teslocation.tesid = NEW.tesid;
+
+    END;
+// DELIMITER ;
+
+
 /**
 DELIMITER //
 DROP TRIGGER IF EXISTS createSuperAdmin //
@@ -416,9 +485,10 @@ CALL CreateAccessRight('10', 'super admin');
 SELECT * FROM accessrights;
 
 /********CREATE USERS***************/
-CALL CreateSystemUser('admin@mail.com', 'a1', 'bobby', 'lite', '5948-953');
-CALL CreateSystemUser('user@mail.com', 'a1', 'garry', 'brown', '5455-4489');
+CALL CreateSystemUser('admin@mail.com', 'f29bc91bbdab169fc0c0a326965953d11c7dff83', 'bobby', 'lite', '5948-953');
+CALL CreateSystemUser('user@mail.com', 'f29bc91bbdab169fc0c0a326965953d11c7dff83', 'garry', 'brown', '5455-4489');
 CALL CreateSystemUser('gill@live.com', 'a1', 'gill', 'krones', '5455-6489');
+CALL CreateSystemUser('eddie@mail.com', 'f29bc91bbdab169fc0c0a326965953d11c7dff83', 'eddie', 'izzrd', '5455-4489');
 
 SELECT * FROM users;
 
@@ -528,12 +598,12 @@ CALL CreateLocation('Howitzvej 73','2000');
 CALL CreateLocation('Jægersborggade 18','2000');
 CALL CreateLocation('Bentzonsvej 51','2000');
 
-INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20003', '25006', '2017-05-21 11:00:00', '2017-05-21 18:00:00', CURRENT_TIMESTAMP, NULL, '60'); 
-INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20005', '25006', '2017-05-09 00:00:00', '2017-05-09 18:00:00', CURRENT_TIMESTAMP, NULL, '200'); 
-INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20002', '25000', '2017-05-16 14:00:00', '2017-05-16 20:00:00', CURRENT_TIMESTAMP, NULL, '50'); 
-INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20006', '25007', '2017-05-25 05:00:00', '2017-05-25 12:00:00', CURRENT_TIMESTAMP, NULL, '1000');
-INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20006', '25003', '2017-06-03 12:00:00', '2017-05-06 19:00:00', CURRENT_TIMESTAMP, NULL, '60');
-INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES  ('20004', '25005', '2017-05-24 09:00:00', '2017-05-24 18:00:00', CURRENT_TIMESTAMP, NULL, '40');
+INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20003', '25006', '2017-05-21 11:00:00', '2017-05-21 18:00:00', CURRENT_TIMESTAMP, '0', '60'); 
+INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20005', '25006', '2017-05-09 00:00:00', '2017-05-09 18:00:00', CURRENT_TIMESTAMP, '0', '200'); 
+INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20002', '25000', '2017-05-16 14:00:00', '2017-05-16 20:00:00', CURRENT_TIMESTAMP, '0', '50'); 
+INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20006', '25007', '2017-05-25 05:00:00', '2017-05-25 12:00:00', CURRENT_TIMESTAMP, '0', '1000');
+INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES ('20006', '25003', '2017-06-03 12:00:00', '2017-05-06 19:00:00', CURRENT_TIMESTAMP, '0', '60');
+INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES  ('20004', '25005', '2017-05-24 09:00:00', '2017-05-24 18:00:00', CURRENT_TIMESTAMP, '0', '40');
 
 INSERT INTO lecturer (email, mobile, fname, lname) VALUES ( 'klaus@themail.com', '3459-3204', 'klause', 'rasmus');
 INSERT INTO lecturer (email, mobile, fname, lname) VALUES ( 'peter.p@gmail.com', '4359-4356', 'peter', 'smith');
@@ -541,14 +611,22 @@ INSERT INTO lecturer (email, mobile, fname, lname) VALUES ( 'roger.s@gmail.com',
 
 INSERT INTO telecturer (teid, lid) VALUES ('20000', '40000');
 INSERT INTO telecturer (teid, lid) VALUES ('20001', '40001');
+INSERT INTO telecturer (teid, lid) VALUES ('20001', '40002');
 INSERT INTO telecturer (teid, lid) VALUES ('20002', '40002');
+INSERT INTO telecturer (teid, lid) VALUES ('20000', '40002');
 
 INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5000', '20000', '3', '1'); 
 INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5001', '20001', '1', '1');
 INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5001', '20000', '1', '1'); 
 INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5001', '20004', '20', '1'); 
-INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5003', '20003', '4', '1');
-INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5003', '20006', '47', '1');
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5003', '20006', '42', '1');
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5003', '20004', '3', '1');
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5012', '20004', '1', '1');
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5008', '20006', '2', '1');
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5012', '20002', '2', '1');
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5013', '20002', '5', '1');
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5009', '20002', '1', '1');
+INSERT INTO userattending (uid, tesid, reservedseats, attending) VALUES ('5014', '20002', '4', '1');
 
 INSERT INTO partners (pname, url) VALUES ('falcon', 'https://www.falcon.io/');
 INSERT INTO partners (pname, url) VALUES ('pinmeto', 'https://www.pinmeto.com/');
@@ -596,21 +674,58 @@ INSERT INTO imagelabels (ilabel, ialt) VALUES ('patent.jpg', 'patent stamp print
 INSERT INTO imagelabels (ilabel, ialt) VALUES ('brain.jpg', 'brain network firing neurons'); 
 INSERT INTO imagelabels (ilabel, ialt) VALUES ('gamer.jpg', 'room full of nerds wasting time'); 
 INSERT INTO imagelabels (ilabel, ialt) VALUES ('react.jpg', 'react logo'); 
-INSERT INTO imagelabels (ilabel, ialt) VALUES ('dapp.jpg', 'ethereum logo');
+INSERT INTO imagelabels (ilabel, ialt) VALUES ('dapp.jpg', 'dapp image of conference room');
 
 INSERT INTO teventilabels (tesid, ilid) VALUES ('20000', '800009'); 
 INSERT INTO teventilabels (tesid, ilid) VALUES ('20001', '800010'); 
 INSERT INTO teventilabels (tesid, ilid) VALUES ('20002', '800011'); 
 INSERT INTO teventilabels (tesid, ilid) VALUES ('20003', '800012'); 
 INSERT INTO teventilabels (tesid, ilid) VALUES ('20004', '800013');
-
+INSERT INTO teventilabels (tesid, ilid) VALUES ('20005', '800014');
 /***********************************************************/
-/**    -added passwords for users  CreateUser() procedure **/
-/**    -added passwords for users  user inserts inserts   **/
-/**    -added passwords for users  user inserts           **/
-/**    -added inner join stored procedure getAllTechEvebts**/
+/**   -added passwords for users  CreateUser() procedure  **/
+/**   -added passwords for users  user inserts inserts    **/
+/**   -added passwords for users  user inserts            **/
+/**   -added inner join stored procedure getAllTechEvebts **/
+/**   -added encryption for passwords on controller (sha1)**/
+/**   -added procedures to CRUD events                    **/
+/**   -added trigger when user books a ticket             **/
 
 EXECUTE get_all_events;
+
+SELECT * FROM techevents;
+
+/*CREATE USER ATTENDING EVENT*/
+CALL submit_user_attending_event('5001', '20003', '4');
+/*SELECT * USER ATTENDING EVENT*/
+SELECT * FROM userattending;
+SELECT * FROM teslocation;
+
+/*SELECT SPECIFIC USER ATTENDING EVENT*/
+CALL select_user_attending_event('5001', '20003');
+
+/*SELECT * USER ATTENDING EVENT*/
+SELECT * FROM userattending;
+
+/*CREATE USER ATTENDING EVENT*/
+CALL submit_user_attending_event('5003', '20003', '5');
+/*SELCT UPDATED USER ATTENDING EVENT*/
+CALL select_user_attending_event('5003', '20003');
+/*UPDATE USER ATTENDING EVENT*/
+CALL update_user_attending_event('5003', '20003', '2', '1');
+/*SELCT UPDATED USER ATTENDING EVENT*/
+CALL select_user_attending_event('5003', '20003');
+
+
+SELECT * FROM techevents;
+
+EXECUTE get_all_events;
+SELECT * FROM users;
+
+/*DROP USER ATTENDING EVENT*/
+CALL drop_user_attending_event('5001', '20003');
+CALL drop_user_attending_event('5003', '20003');
+
 
 /** 
 CALL getAllTechEvents(@eid, @lid, @ename, @edesc, @est, @eet, @ta, @al, @ilabel, @ialt);

@@ -4,7 +4,7 @@ include '../inc/db.php';
 //session_start();
 
 $email = $_GET['email'];
-$pass =  $_GET['pass'];
+$pass =  sha1($_GET['pass']);
 
 // var_dump($_GET);
 

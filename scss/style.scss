@@ -819,19 +819,19 @@ footer .social-media-icons{
 	margin-right: 8px;
 }
 .table-header{
-	background-color: $darkenAcctColor1;
+	background-color: $darkenAcctColor2;
 	color: $light-text-color;
 }
 
 .dynamic-rows{
-	background-color: $lighten5AcctColor1;
+	background-color: $lightenAcctColor2;
 }
 
 .dynamic-rows:nth-child(odd){
-	background-color: $lightenAcctColor1;
+	background-color: $darken40AcctColor2;
 }
 .dynamic-rows:hover{
-	background-color: $accent-color-1;
+	background-color: $lighten50SecondaryColor;
 }
 .dynamic-rows:active{
 	background-color: $lightenSecondaryColor;

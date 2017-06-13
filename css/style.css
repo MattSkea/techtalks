@@ -714,17 +714,17 @@ footer .social-media-icons {
   margin-right: 8px; }
 
 .table-header {
-  background-color: #71a436;
+  background-color: #3e3e3e;
   color: #ffffff; }
 
 .dynamic-rows {
-  background-color: #97c95d; }
+  background-color: white; }
 
 .dynamic-rows:nth-child(odd) {
-  background-color: #a4d070; }
+  background-color: #d7d7d7; }
 
 .dynamic-rows:hover {
-  background-color: #8bc34a; }
+  background-color: #e2e8eb; }
 
 .dynamic-rows:active {
   background-color: #87a1ad; }
