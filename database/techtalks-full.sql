@@ -75,7 +75,7 @@ CREATE TABLE telecturer(
 
 CREATE TABLE locations(
  id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
- address VARCHAR(40),
+ address VARCHAR(40) UNIQUE,
  zip VARCHAR(10),
  PRIMARY KEY (id)
 );
@@ -441,6 +441,42 @@ UPDATE userattending SET reservedseats = seats, attending = willAttend WHERE uid
 END 
 // DELIMITER ;
 
+/*******CREATE EVENT*****/
+DELIMITER //
+DROP PROCEDURE IF EXISTS CreateFullTechEvent//
+CREATE PROCEDURE CreateFullTechEvent
+(IN ename VARCHAR(80), IN edesc TEXT, IN new_ilbl VARCHAR(80), 
+	IN new_ialt VARCHAR(200), IN new_est DATETIME, 
+    IN new_eet DATETIME, IN new_eattendlimit INT, 
+    IN new_address VARCHAR(40), IN new_zip VARCHAR(10))
+DETERMINISTIC
+BEGIN
+DECLARE e_id INT;
+DECLARE i_id INT;
+DECLARE l_id INT;
+
+INSERT INTO techevents (tename, tedescription)
+VALUES (ename, edesc);
+
+SET e_id = last_insert_id();
+
+INSERT INTO imagelabels (ilabel, ialt) 
+VALUES (new_ilbl, new_ialt); 
+
+SET i_id = last_insert_id();
+
+INSERT INTO teventilabels (tesid, ilid) 
+VALUES (e_id, i_id); 
+
+CALL CreateLocation(new_address, new_zip);
+SET l_id = last_insert_id();
+
+
+INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES (e_id, l_id, new_est, new_eet, CURRENT_TIMESTAMP, '0', new_eattendlimit);
+
+END 
+// DELIMITER ;
+
 /************************************/
 /***************TRIGGERS*************/
 DELIMITER //
@@ -725,6 +761,10 @@ SELECT * FROM users;
 /*DROP USER ATTENDING EVENT*/
 CALL drop_user_attending_event('5001', '20003');
 CALL drop_user_attending_event('5003', '20003');
+
+CALL CreateFullTechEvent('New eventss', 'this is a new event where we are trying new things', 'news.jpg', 'new image alts', '2017-06-14 17:00:00', '2017-06-14 23:00:00', '40', 'vangede 85', '1800');
+
+EXECUTE get_all_events;
 
 
 /** 
