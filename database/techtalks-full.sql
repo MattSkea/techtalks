@@ -400,7 +400,7 @@ VALUES (user_id, event_id, seats, '1');
 END 
 // DELIMITER ;
 
-/******* DROP USER ATTENDING EVENT *****/
+/******* DELETE USER ATTENDING EVENT *****/
 DELIMITER //
 DROP PROCEDURE IF EXISTS drop_user_attending_event //
 CREATE PROCEDURE drop_user_attending_event (IN user_id INT, IN event_id INT)
@@ -446,8 +446,7 @@ DELIMITER //
 DROP PROCEDURE IF EXISTS CreateFullTechEvent//
 CREATE PROCEDURE CreateFullTechEvent
 (IN ename VARCHAR(80), IN edesc TEXT, IN new_ilbl VARCHAR(80), 
-	IN new_ialt VARCHAR(200), IN new_est DATETIME, 
-    IN new_eet DATETIME, IN new_eattendlimit INT, 
+	IN new_ialt VARCHAR(200), IN new_est DATETIME, IN new_eet DATETIME, IN new_eattendlimit INT, 
     IN new_address VARCHAR(40), IN new_zip VARCHAR(10))
 DETERMINISTIC
 BEGIN
@@ -472,10 +471,28 @@ CALL CreateLocation(new_address, new_zip);
 SET l_id = last_insert_id();
 
 
-INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) VALUES (e_id, l_id, new_est, new_eet, CURRENT_TIMESTAMP, '0', new_eattendlimit);
+INSERT INTO teslocation (tesid, lid, eventst, eventet, dateadded, totalattending, attendlimit) 
+VALUES (e_id, l_id, new_est, new_eet, CURRENT_TIMESTAMP, '0', new_eattendlimit);
 
 END 
 // DELIMITER ;
+
+/*******DELETE EVENT*****/
+DELIMITER //
+DROP PROCEDURE IF EXISTS DeleteFullTechEvent//
+CREATE PROCEDURE DeleteFullTechEvent
+(IN te_id INT)
+DETERMINISTIC
+BEGIN
+
+DELETE teslocation.* FROM teslocation 
+INNER JOIN teventilabels ON teventilabels.tesid = teslocation.tesid
+INNER JOIN techevents ON techevents.id = teslocation.tesid
+WHERE teslocation.tesid = te_id;
+
+END 
+// DELIMITER ;
+
 
 /************************************/
 /***************TRIGGERS*************/
@@ -762,11 +779,13 @@ SELECT * FROM users;
 CALL drop_user_attending_event('5001', '20003');
 CALL drop_user_attending_event('5003', '20003');
 
-CALL CreateFullTechEvent('New eventss', 'this is a new event where we are trying new things', 'news.jpg', 'new image alts', '2017-06-14 17:00:00', '2017-06-14 23:00:00', '40', 'vangede 85', '1800');
+CALL CreateFullTechEvent('New event', 'this is a new event where we are trying new things', 'news.jpg', 'new image alts', '2017-06-14 17:00:00', '2017-06-14 23:00:00', '40', 'vangede 85', '1800');
 
 EXECUTE get_all_events;
 
 
-/** 
+CALL DeleteFullTechEvent('20009');
+
+EXECUTE get_all_events;/** 
 CALL getAllTechEvents(@eid, @lid, @ename, @edesc, @est, @eet, @ta, @al, @ilabel, @ialt);
 **/

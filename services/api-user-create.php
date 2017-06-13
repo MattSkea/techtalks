@@ -3,7 +3,7 @@
 include '../inc/db.php';
 
 $email = $_POST["email"];
-$pass = $_POST["pass"];
+$pass = sha1($_POST["pass"]);
 $fname = $_POST["fname"];
 $lname = $_POST["lname"];
 $mobile = $_POST['mobile'];
